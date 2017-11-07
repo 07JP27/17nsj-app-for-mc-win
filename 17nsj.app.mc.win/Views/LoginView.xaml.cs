@@ -1,8 +1,8 @@
 ﻿//----------------------------------------------------------------------
-// <copyright file="MainWindow.xaml.cs" company="PlaceholderCompany">
+// <copyright file="LoginView.xaml.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
-// <summary>MainWindowクラス</summary>
+// <summary>LoginViewクラス</summary>
 //----------------------------------------------------------------------
 
 using System;
@@ -17,20 +17,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _17nsj.app.mc.win
+namespace _17nsj.app.mc.win.Views
 {
     /// <summary>
-    /// MainWindow.xaml の相互作用ロジック
+    /// LoginView.xaml の相互作用ロジック
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginView : Window
     {
         /// <summary>
         /// コンストラクタ
         /// </summary>
-        public MainWindow()
+        public LoginView()
         {
             this.InitializeComponent();
         }
