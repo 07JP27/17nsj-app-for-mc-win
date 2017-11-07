@@ -23,12 +23,51 @@ namespace _17nsj.app.mc.win.Views
     public partial class App : Application
     {
         /// <summary>
+        /// Webサーバートークンurl
+        /// </summary>
+        private static string webServerTokenUrl;
+
+        /// <summary>
+        /// WebAPIサーバーurl
+        /// </summary>
+        private static string webServerApiUrl;
+
+        /// <summary>
+        /// WebサーバートークンURLを取得します。
+        /// </summary>
+        /// <value>WebサーバートークンURL</value>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification ="文字列のままでよい")]
+        public static string WebServerTokenUrl
+        {
+            get
+            {
+                return webServerTokenUrl;
+            }
+        }
+
+        /// <summary>
+        /// WebAPIサーバーURLを取得します。
+        /// </summary>
+        /// <value>WebAPIサーバーURL</value>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "文字列のままでよい")]
+        public static string WebServerApiUrl
+        {
+            get
+            {
+                return webServerApiUrl;
+            }
+        }
+
+        /// <summary>
         /// スタートアップ時に呼ばれます。
         /// </summary>
         /// <param name="e">e</param>
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            webServerApiUrl = ConfigurationManager.AppSettings["WebServerUrl"] + "api/";
+            webServerTokenUrl = ConfigurationManager.AppSettings["WebServerUrl"] + "token";
 
             var loginView = new LoginView();
             loginView.DataContext = new LoginViewModel();

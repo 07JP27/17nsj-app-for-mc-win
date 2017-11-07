@@ -55,5 +55,7 @@ dkms.conf
 .vs/
 17nsj.app.mc.win/bin/
 17nsj.app.mc.win/obj/
+17nsj.app.dto/bin/
+17nsj.app.dto/obj/
 packages/
 17nsj.app.mc.win/App.config

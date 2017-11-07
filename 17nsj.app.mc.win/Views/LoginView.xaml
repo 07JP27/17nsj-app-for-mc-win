@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         mc:Ignorable="d"
-        Title="LoginView" Height="300" Width="300">
+        Title="ログイン" Height="150" Width="300" Loaded="ViewLoaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="70" />
+                <ColumnDefinition Width="200" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="ユーザーID ：" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBlock Text="パスワード ：" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" />
+            <TextBox Text="{Binding Path=UserId, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="1" />
+            <PasswordBox x:Name="txtPassword" Grid.Row="2" Grid.Column="1" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Button x:Name="btnLogin" Content="ログイン" Width="100" Click="LoginButtonClick" IsDefault="True" />
+        </Grid>
     </Grid>
 </Window>

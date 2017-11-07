@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17nsj.app.mc.win", "17nsj.app.mc.win\17nsj.app.mc.win.csproj", "{05D01020-8B6E-4ECC-800D-26F3A2861992}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17nsj.app.dto", "17nsj.app.dto\17nsj.app.dto.csproj", "{B6D6E75B-A850-4008-B32F-B1344421CB04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{05D01020-8B6E-4ECC-800D-26F3A2861992}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05D01020-8B6E-4ECC-800D-26F3A2861992}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05D01020-8B6E-4ECC-800D-26F3A2861992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D6E75B-A850-4008-B32F-B1344421CB04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D6E75B-A850-4008-B32F-B1344421CB04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D6E75B-A850-4008-B32F-B1344421CB04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D6E75B-A850-4008-B32F-B1344421CB04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
