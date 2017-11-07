@@ -99,7 +99,13 @@ namespace _17nsj.app.mc.win.Views
                 }
                 else
                 {
-                    // user menu
+                    var childViewModel = new UserMenuViewModel();
+
+                    childView = new UserMenuView();
+                    childViewModel.UserId = this.viewModel.UserId;
+                    childViewModel.DisplayName = this.viewModel.DisplayName;
+                    childViewModel.AccessToken = this.viewModel.AccessToken;
+                    childView.DataContext = childViewModel;
                 }
 
                 childView.Owner = this;
@@ -114,6 +120,8 @@ namespace _17nsj.app.mc.win.Views
             }
             finally
             {
+                this.viewModel.UserId = string.Empty;
+                this.txtPassword.Password = string.Empty;
                 this.btnLogin.IsEnabled = true;
                 this.Show();
             }
