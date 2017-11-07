@@ -1,6 +1,6 @@
 ﻿//----------------------------------------------------------------------
-// <copyright file="ViewModelBase.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// <copyright file="ViewModelBase.cs" company="17NSJ PR Dept">
+// Copyright (c) 17NSJ PR Dept. All rights reserved.
 // </copyright>
 // <summary>LoginViewクラス</summary>
 //----------------------------------------------------------------------

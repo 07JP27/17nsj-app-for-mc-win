@@ -1,6 +1,6 @@
 ﻿//----------------------------------------------------------------------
-// <copyright file="UserMenuView.xaml.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// <copyright file="UserMenuView.xaml.cs" company="17NSJ PR Dept">
+// Copyright (c) 17NSJ PR Dept. All rights reserved.
 // </copyright>
 // <summary>UserMenuView.xaml の相互作用ロジック</summary>
 //----------------------------------------------------------------------
