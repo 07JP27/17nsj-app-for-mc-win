@@ -64,6 +64,8 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private async void LoginButtonClick(object sender, RoutedEventArgs e)
         {
+            this.btnLogin.IsEnabled = false;
+
             if (!this.ValidateLogin())
             {
                 return;
@@ -82,21 +84,38 @@ namespace _17nsj.app.mc.win.Views
 
                 UserDto user = await this.GetUser(this.viewModel.UserId, this.viewModel.AccessToken);
 
+                Window childView = null;
+
                 // 管理者か否かによってメニューを分岐
                 if (user.IsAdmin)
                 {
-                    // admin menu
+                    var childViewModel = new AdminMenuViewModel();
+
+                    childView = new AdminMenuView();
+                    childViewModel.UserId = this.viewModel.UserId;
+                    childViewModel.DisplayName = this.viewModel.DisplayName;
+                    childViewModel.AccessToken = this.viewModel.AccessToken;
+                    childView.DataContext = childViewModel;
                 }
                 else
                 {
                     // user menu
                 }
+
+                childView.Owner = this;
+                this.Hide();
+                childView.ShowDialog();
             }
             catch (Exception ex)
             {
                 ex.ToString();
 
                 // todo
+            }
+            finally
+            {
+                this.btnLogin.IsEnabled = true;
+                this.Show();
             }
         }
 
