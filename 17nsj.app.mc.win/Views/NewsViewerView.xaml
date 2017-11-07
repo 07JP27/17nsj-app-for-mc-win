@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         mc:Ignorable="d"
-        Title="NewsViewerView" Height="300" Width="300">
+        Title="NewsViewerView" Height="500" Width="800" Loaded="ViewLoaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <ListView Grid.Column="0" ItemsSource="{Binding Path=NewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+        </Grid>
     </Grid>
 </Window>

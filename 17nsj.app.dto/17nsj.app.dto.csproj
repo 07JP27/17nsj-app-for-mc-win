@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="AuthResultDto.cs" />
+    <Compile Include="NewsDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserDto.cs" />
   </ItemGroup>
