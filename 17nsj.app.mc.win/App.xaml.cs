@@ -1,4 +1,11 @@
-﻿using System;
+﻿//----------------------------------------------------------------------
+// <copyright file="App.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <summary>Appクラス</summary>
+//----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

@@ -1,4 +1,11 @@
-﻿using System;
+﻿//----------------------------------------------------------------------
+// <copyright file="MainWindow.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+// <summary>MainWindowクラス</summary>
+//----------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +27,12 @@ namespace _17nsj.app.mc.win
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
