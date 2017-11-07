@@ -114,9 +114,7 @@ namespace _17nsj.app.mc.win.Views
             }
             catch (Exception ex)
             {
-                ex.ToString();
-
-                // todo
+                MessageBox.Show(ex.ToString());
             }
             finally
             {
