@@ -124,6 +124,7 @@ namespace _17nsj.app.mc.win.Views
                 this.txtPassword.Password = string.Empty;
                 this.btnLogin.IsEnabled = true;
                 this.Show();
+                this.txtUserId.Focus();
             }
         }
 
