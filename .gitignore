@@ -50,3 +50,10 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+.DS_Store
+.vs/
+17nsj.app.mc.win/bin/
+17nsj.app.mc.win/obj/
+packages/
+17nsj.app.mc.win/App.config
