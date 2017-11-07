@@ -7,6 +7,14 @@
         mc:Ignorable="d"
         Title="UserMenuView" Height="300" Width="300"  Loaded="ViewLoaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button Content="ニュースを見る" Grid.Row="0" Click="ViewNewsButtonClick" />
+        <Button Content="ニュースを登録" Grid.Row="1" Click="AddNewsButtonClick"/>
+        <Button Content="大会本部からのお知らせを見る" Grid.Row="2" Click="ViewNoticesButtonClick"/>
+
     </Grid>
 </Window>

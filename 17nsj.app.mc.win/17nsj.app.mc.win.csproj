@@ -81,6 +81,9 @@
     </ApplicationDefinition>
     <Compile Include="Models\NotificationObject.cs" />
     <Compile Include="Utils\HashCreater.cs" />
+    <Compile Include="ViewModels\NoticesViewerViewModel.cs" />
+    <Compile Include="ViewModels\NewsRegisterViewModel.cs" />
+    <Compile Include="ViewModels\NewsViewerViewModel.cs" />
     <Compile Include="ViewModels\UserMenuViewModel.cs" />
     <Compile Include="ViewModels\AdminMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -94,6 +97,15 @@
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsRegisterView.xaml.cs">
+      <DependentUpon>NewsRegisterView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsViewerView.xaml.cs">
+      <DependentUpon>NewsViewerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NoticesViewerView.xaml.cs">
+      <DependentUpon>NoticesViewerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserMenuView.xaml.cs">
       <DependentUpon>UserMenuView.xaml</DependentUpon>
@@ -161,6 +173,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsRegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsViewerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NoticesViewerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

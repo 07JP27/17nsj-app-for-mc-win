@@ -49,5 +49,59 @@ namespace _17nsj.app.mc.win.Views
         {
             this.viewModel = this.DataContext as UserMenuViewModel;
         }
+
+        /// <summary>
+        /// ニュースを見るボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void ViewNewsButtonClick(object sender, RoutedEventArgs e)
+        {
+            var childView = new NewsViewerView();
+            var childViewModel = new NewsViewerViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
+        }
+
+        /// <summary>
+        /// ニュースを登録ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void AddNewsButtonClick(object sender, RoutedEventArgs e)
+        {
+            var childView = new NewsRegisterView();
+            var childViewModel = new NewsRegisterViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
+        }
+
+        /// <summary>
+        /// 大会本部からのお知らせを見るボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void ViewNoticesButtonClick(object sender, RoutedEventArgs e)
+        {
+            var childView = new NoticesViewerView();
+            var childViewModel = new NoticesViewerViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
+        }
     }
 }
