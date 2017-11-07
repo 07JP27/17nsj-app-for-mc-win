@@ -1,5 +1,12 @@
-﻿using System.Resources;
+﻿//----------------------------------------------------------------------
+// <copyright file="AssemblyInfo.cs" company="17NSJ PR Dept">
+// Copyright (c) 17NSJ PR Dept. All rights reserved.
+// </copyright>
+// <summary>AssemblyInfoファイル</summary>
+//----------------------------------------------------------------------
+
 using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -23,7 +30,7 @@ using System.Runtime.InteropServices;
 //      ビルド番号
 //      リビジョン
 //
-// すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を 
+// すべての値を指定するか、下のように '*' を使ってビルドおよびリビジョン番号を
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
