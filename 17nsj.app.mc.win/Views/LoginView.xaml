@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         mc:Ignorable="d"
         Title="ログイン" Height="150" Width="300" Loaded="ViewLoaded"
-        FocusManager.FocusedElement="{Binding ElementName=txtCompanyCode}">
+        FocusManager.FocusedElement="{Binding ElementName=txtUserId}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
