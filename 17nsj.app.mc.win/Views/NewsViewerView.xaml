@@ -34,7 +34,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid Grid.Column="1" Margin="50px, 10px">
+        <Grid Grid.Column="1" Margin="50px, 0px">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25" />
                 <RowDefinition Height="25" />
