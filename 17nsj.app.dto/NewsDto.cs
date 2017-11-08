@@ -66,6 +66,6 @@ namespace _17nsj.app.dto
         /// </summary>
         /// <value>配信日時</value>
         [JsonProperty("CreatedAt", NullValueHandling = NullValueHandling.Ignore)]
-        public string CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }

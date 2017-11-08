@@ -91,6 +91,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\NewsCategoryModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\NotificationObject.cs" />
     <Compile Include="Utils\HashCreater.cs" />

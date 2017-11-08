@@ -24,6 +24,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using _17nsj.app.dto;
+using _17nsj.app.mc.win.Models;
 using _17nsj.app.mc.win.ViewModels;
 using Newtonsoft.Json;
 
@@ -52,17 +53,19 @@ namespace _17nsj.app.mc.win.Views
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">e</param>
-        private void ViewLoaded(object sender, RoutedEventArgs e)
+        private async void ViewLoaded(object sender, RoutedEventArgs e)
         {
             this.viewModel = this.DataContext as NewsViewerViewModel;
 
-            this.GetNewsList();
+            await this.GetNewsCategoryList();
+            await this.GetNewsList();
         }
 
         /// <summary>
-        /// ニュースリストを取得します。
+        /// ニュースカテゴリーリストを取得します。
         /// </summary>
-        private async void GetNewsList()
+        /// <returns>タスク</returns>
+        private async Task GetNewsCategoryList()
         {
             var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
             var client = new HttpClient(handler);
@@ -70,8 +73,45 @@ namespace _17nsj.app.mc.win.Views
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.viewModel.AccessToken);
 
             var tokenSource = new CancellationTokenSource();
+            var url = new Uri($"{App.WebServerApiUrl}news_categories");
+            var response = await client.GetAsync(url, tokenSource.Token);
 
-            // 企業内のユーザ一覧を取得
+            response.EnsureSuccessStatusCode();
+
+            if (response.StatusCode == HttpStatusCode.NoContent)
+            {
+                return;
+            }
+
+            var responseText = await response.Content.ReadAsStringAsync();
+            var responseDto = JsonConvert.DeserializeObject<List<NewsCategoryDto>>(responseText);
+            ObservableCollection<NewsCategoryModel> responseModel = new ObservableCollection<NewsCategoryModel>();
+
+            foreach (var dto in responseDto)
+            {
+                NewsCategoryModel model = new NewsCategoryModel();
+                model.Category = dto.Category;
+                model.CategoryName = dto.CategoryName;
+                model.Color = dto.Color;
+                responseModel.Add(model);
+            }
+
+            this.viewModel.NewsCategoryList = responseModel;
+            return;
+        }
+
+        /// <summary>
+        /// ニュースリストを取得します。
+        /// </summary>
+        /// <returns>タスク</returns>
+        private async Task GetNewsList()
+        {
+            var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
+            var client = new HttpClient(handler);
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.viewModel.AccessToken);
+
+            var tokenSource = new CancellationTokenSource();
             var url = new Uri($"{App.WebServerApiUrl}news");
             var response = await client.GetAsync(url, tokenSource.Token);
 
@@ -83,9 +123,27 @@ namespace _17nsj.app.mc.win.Views
             }
 
             var responseText = await response.Content.ReadAsStringAsync();
-            var responseDto = JsonConvert.DeserializeObject<ObservableCollection<Models.NewsModel>>(responseText);
+            var responseDto = JsonConvert.DeserializeObject<List<NewsDto>>(responseText);
+            ObservableCollection<NewsModel> responseModel = new ObservableCollection<NewsModel>();
 
-            this.viewModel.NewsList = responseDto;
+            foreach (var dto in responseDto)
+            {
+                NewsModel model = new NewsModel();
+                NewsCategoryModel category = this.viewModel.NewsCategoryList.Where(e => e.Category == dto.Category).Single();
+
+                model.Category = dto.Category;
+                model.Id = dto.Id;
+                model.Author = dto.Author;
+                model.Title = dto.Title;
+                model.Outline = dto.Outline;
+                model.MediaURL = dto.MediaURL;
+                model.CreatedAt = dto.CreatedAt;
+                model.CategoryName = category.CategoryName;
+                model.Color = category.Color;
+                responseModel.Add(model);
+            }
+
+            this.viewModel.NewsList = responseModel;
             return;
         }
     }

@@ -54,9 +54,19 @@ namespace _17nsj.app.mc.win.Models
         private DateTime createdAt;
 
         /// <summary>
+        /// カテゴリー名1
+        /// </summary>
+        private string categoryName;
+
+        /// <summary>
+        /// ラベルカラー
+        /// </summary>
+        private string color;
+
+        /// <summary>
         /// カテゴリーを取得または設定します。
         /// </summary>
-        /// <value>ユーザーID</value>
+        /// <value>カテゴリー</value>
         public string Category
         {
             get
@@ -195,6 +205,48 @@ namespace _17nsj.app.mc.win.Models
                 if (this.createdAt != value)
                 {
                     this.createdAt = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// カテゴリー名を取得または設定します。
+        /// </summary>
+        /// <value>カテゴリー名</value>
+        public string CategoryName
+        {
+            get
+            {
+                return this.categoryName;
+            }
+
+            set
+            {
+                if (this.categoryName != value)
+                {
+                    this.categoryName = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// ラベルカラーを取得または設定します。
+        /// </summary>
+        /// <value>カテゴリー名</value>
+        public string Color
+        {
+            get
+            {
+                return this.color;
+            }
+
+            set
+            {
+                if (this.color != value)
+                {
+                    this.color = value;
                     this.RaisePropertyChanged();
                 }
             }

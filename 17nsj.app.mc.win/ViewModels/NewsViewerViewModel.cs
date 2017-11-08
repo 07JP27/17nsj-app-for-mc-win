@@ -23,6 +23,8 @@ namespace _17nsj.app.mc.win.ViewModels
     /// </summary>
     public class NewsViewerViewModel : ViewModelBase
     {
+        private ObservableCollection<NewsCategoryModel> newsCategoryList = new ObservableCollection<NewsCategoryModel>();
+
         /// <summary>
         /// ニュースリスト
         /// </summary>
@@ -32,6 +34,27 @@ namespace _17nsj.app.mc.win.ViewModels
         /// 選択中のニュース
         /// </summary>
         private NewsModel selectedNews = new NewsModel();
+
+        /// <summary>
+        /// ニュースカテゴリーリストを取得または設定します。
+        /// </summary>
+        /// <value>ニュースカテゴリーリスト</value>
+        public ObservableCollection<NewsCategoryModel> NewsCategoryList
+        {
+            get
+            {
+                return this.newsCategoryList;
+            }
+
+            set
+            {
+                if (this.newsCategoryList != value)
+                {
+                    this.newsCategoryList = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
 
         /// <summary>
         /// ニュースリストを取得または設定します。
@@ -97,6 +120,21 @@ namespace _17nsj.app.mc.win.ViewModels
                     {
                         this.RaisePropertyChanged(nameof(this.SelectedMediaURL));
                     }
+
+                    if (oldNews.CreatedAt != value.CreatedAt)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedCreatedAt));
+                    }
+
+                    if (oldNews.CategoryName != value.CategoryName)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedCategoryName));
+                    }
+
+                    if (oldNews.Color != value.Color)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedColor));
+                    }
                 }
             }
         }
@@ -158,6 +196,42 @@ namespace _17nsj.app.mc.win.ViewModels
             get
             {
                 return this.SelectedNews.MediaURL;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報の配信日時を取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報の配信日時</value>
+        public DateTime SelectedCreatedAt
+        {
+            get
+            {
+                return this.SelectedNews.CreatedAt;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報のカテゴリー名を取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報のカテゴリー名</value>
+        public string SelectedCategoryName
+        {
+            get
+            {
+                return this.SelectedNews.CategoryName;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報のラベルカラーを取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報のラベルカラー</value>
+        public string SelectedColor
+        {
+            get
+            {
+                return this.SelectedNews.Color;
             }
         }
     }
