@@ -76,6 +76,13 @@ namespace _17nsj.app.mc.win.Views
             var url = new Uri($"{App.WebServerApiUrl}news_categories");
             var response = await client.GetAsync(url, tokenSource.Token);
 
+            if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                MessageBox.Show("現在ログイン中のアカウントではこの操作は許可されていません。");
+                this.Close();
+                return;
+            }
+
             response.EnsureSuccessStatusCode();
 
             if (response.StatusCode == HttpStatusCode.NoContent)
@@ -114,6 +121,13 @@ namespace _17nsj.app.mc.win.Views
             var tokenSource = new CancellationTokenSource();
             var url = new Uri($"{App.WebServerApiUrl}news");
             var response = await client.GetAsync(url, tokenSource.Token);
+
+            if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                MessageBox.Show("現在ログイン中のアカウントではこの操作は許可されていません。");
+                this.Close();
+                return;
+            }
 
             response.EnsureSuccessStatusCode();
 

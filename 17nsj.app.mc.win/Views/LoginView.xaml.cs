@@ -84,6 +84,11 @@ namespace _17nsj.app.mc.win.Views
 
                 UserDto user = await this.GetUser(this.viewModel.UserId, this.viewModel.AccessToken);
 
+                if (user == null)
+                {
+                    return;
+                }
+
                 Window childView = null;
 
                 // 管理者か否かによってメニューを分岐
@@ -198,6 +203,12 @@ namespace _17nsj.app.mc.win.Views
             // 企業内のユーザ一覧を取得
             var url = new Uri($"{App.WebServerApiUrl}users/{userId}");
             var response = await client.GetAsync(url, tokenSource.Token);
+
+            if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                MessageBox.Show("現在ログイン中のアカウントではこの操作は許可されていません。");
+                return null;
+            }
 
             response.EnsureSuccessStatusCode();
 
