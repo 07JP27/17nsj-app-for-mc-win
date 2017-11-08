@@ -11,13 +11,17 @@
             <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListView Grid.Column="0" ItemsSource="{Binding Path=NewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedItem, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ItemSelected">
-            <ListView.ItemTemplate>
+        <ListBox Grid.Column="0" ItemsSource="{Binding Path=NewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedNews, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ItemSelected">
+            <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" />
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Title}" FontSize="20px" />
+                        <TextBlock Text="{Binding Path=SerialId}" />
+                        <TextBlock Text="{Binding Path=Author}" />
+                    </StackPanel>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
@@ -26,6 +30,10 @@
                 <RowDefinition Height="150" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="{Binding Path=SelectedSerialId, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="1" Text="{Binding Path=SelectedTitle, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="3" Text="{Binding Path=SelectedOutline, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="4" Text="{Binding Path=SelectedMediaURL, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
     </Grid>
 </Window>

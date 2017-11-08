@@ -7,10 +7,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using _17nsj.app.dto;
+using _17nsj.app.mc.win.Models;
+using Livet.EventListeners;
 
 namespace _17nsj.app.mc.win.ViewModels
 {
@@ -22,18 +26,18 @@ namespace _17nsj.app.mc.win.ViewModels
         /// <summary>
         /// ニュースリスト
         /// </summary>
-        private List<NewsDto> newsList = new List<NewsDto>();
+        private ObservableCollection<NewsModel> newsList = new ObservableCollection<NewsModel>();
 
         /// <summary>
         /// 選択中のニュース
         /// </summary>
-        private NewsDto selectedNews;
+        private NewsModel selectedNews = new NewsModel();
 
         /// <summary>
         /// ニュースリストを取得または設定します。
         /// </summary>
         /// <value>ニュースリスト</value>
-        public List<NewsDto> NewsList
+        public ObservableCollection<NewsModel> NewsList
         {
             get
             {
@@ -54,7 +58,7 @@ namespace _17nsj.app.mc.win.ViewModels
         /// 選択中のニュースを取得または設定します。
         /// </summary>
         /// <value>選択中のニュース</value>
-        public NewsDto SelectedNews
+        public NewsModel SelectedNews
         {
             get
             {
@@ -65,9 +69,95 @@ namespace _17nsj.app.mc.win.ViewModels
             {
                 if (this.selectedNews != value)
                 {
+                    var oldNews = this.selectedNews;
                     this.selectedNews = value;
                     this.RaisePropertyChanged();
+
+                    if (oldNews.SerialId != value.SerialId)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedSerialId));
+                    }
+
+                    if (oldNews.Author != value.Author)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedAuthor));
+                    }
+
+                    if (oldNews.Title != value.Title)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedTitle));
+                    }
+
+                    if (oldNews.Outline != value.Outline)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedOutline));
+                    }
+
+                    if (oldNews.MediaURL != value.MediaURL)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedMediaURL));
+                    }
                 }
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報のシリアルIDを取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報のシリアルID</value>
+        public string SelectedSerialId
+        {
+            get
+            {
+                return this.SelectedNews.SerialId;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報の著者を取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報の著者</value>
+        public string SelectedAuthor
+        {
+            get
+            {
+                return this.SelectedNews.Author;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報のタイトルを取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報のタイトル</value>
+        public string SelectedTitle
+        {
+            get
+            {
+                return this.SelectedNews.Title;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報の概要を取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報の概要</value>
+        public string SelectedOutline
+        {
+            get
+            {
+                return this.SelectedNews.Outline;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報のメディアURLを取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報のメディアURL</value>
+        public string SelectedMediaURL
+        {
+            get
+            {
+                return this.SelectedNews.MediaURL;
             }
         }
     }

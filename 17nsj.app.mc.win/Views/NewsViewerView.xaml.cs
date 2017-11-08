@@ -7,6 +7,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -82,7 +83,7 @@ namespace _17nsj.app.mc.win.Views
             }
 
             var responseText = await response.Content.ReadAsStringAsync();
-            var responseDto = JsonConvert.DeserializeObject<List<NewsDto>>(responseText);
+            var responseDto = JsonConvert.DeserializeObject<ObservableCollection<Models.NewsModel>>(responseText);
 
             this.viewModel.NewsList = responseDto;
             return;

@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <Button Content="ニュースを見る" Grid.Row="0" Click="ViewNewsButtonClick" />
         <Button Content="ニュースを登録" Grid.Row="1" Click="AddNewsButtonClick"/>
-        <Button Content="大会本部からのお知らせを見る" Grid.Row="2" Click="ViewNoticesButtonClick"/>
+        <!--<Button Content="大会本部からのお知らせを見る" Grid.Row="2" Click="ViewNoticesButtonClick"/>-->
 
     </Grid>
 </Window>
