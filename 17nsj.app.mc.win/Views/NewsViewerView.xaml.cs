@@ -88,15 +88,5 @@ namespace _17nsj.app.mc.win.Views
             this.viewModel.NewsList = responseDto;
             return;
         }
-
-        /// <summary>
-        /// リスト内のアイテムが選択されたときに呼ばれます。
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">e</param>
-        private void ItemSelected(object sender, SelectionChangedEventArgs e)
-        {
-            // todo
-        }
     }
 }

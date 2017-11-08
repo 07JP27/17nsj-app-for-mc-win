@@ -11,7 +11,7 @@
             <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding Path=NewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedNews, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="ItemSelected">
+        <ListBox Grid.Column="0" ItemsSource="{Binding Path=NewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedNews, UpdateSourceTrigger=PropertyChanged}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
