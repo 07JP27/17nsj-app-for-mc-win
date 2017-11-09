@@ -90,7 +90,7 @@ namespace _17nsj.app.mc.win.Views
             }
 
             var responseText = await response.Content.ReadAsStringAsync();
-            var responseDto = JsonConvert.DeserializeObject<List<NewsDto>>(responseText);
+            var responseDto = JsonConvert.DeserializeObject<List<NoticeDto>>(responseText);
             ObservableCollection<NoticeModel> responseModels = new ObservableCollection<NoticeModel>();
 
             foreach (var dto in responseDto)
