@@ -56,7 +56,6 @@ namespace _17nsj.app.mc.win.Views
         private void ViewLoaded(object sender, RoutedEventArgs e)
         {
             this.viewModel = this.DataContext as NoticeRegisterViewModel;
-            this.viewModel.Author = this.viewModel.DisplayName;
         }
 
         /// <summary>
