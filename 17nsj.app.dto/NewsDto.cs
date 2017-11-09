@@ -24,7 +24,7 @@ namespace _17nsj.app.dto
         /// </summary>
         /// <value>ユーザーID</value>
         [JsonProperty("Category", NullValueHandling = NullValueHandling.Ignore)]
-        public string Category { get; set; }
+        public char Category { get; set; }
 
         /// <summary>
         /// 通し番号を取得または設定します。
