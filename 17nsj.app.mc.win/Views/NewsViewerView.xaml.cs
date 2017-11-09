@@ -92,7 +92,7 @@ namespace _17nsj.app.mc.win.Views
 
             var responseText = await response.Content.ReadAsStringAsync();
             var responseDto = JsonConvert.DeserializeObject<List<NewsCategoryDto>>(responseText);
-            ObservableCollection<NewsCategoryModel> responseModel = new ObservableCollection<NewsCategoryModel>();
+            ObservableCollection<NewsCategoryModel> responseModels = new ObservableCollection<NewsCategoryModel>();
 
             foreach (var dto in responseDto)
             {
@@ -100,10 +100,10 @@ namespace _17nsj.app.mc.win.Views
                 model.Category = dto.Category;
                 model.CategoryName = dto.CategoryName;
                 model.Color = dto.Color;
-                responseModel.Add(model);
+                responseModels.Add(model);
             }
 
-            this.viewModel.NewsCategoryList = responseModel;
+            this.viewModel.NewsCategoryList = responseModels;
             return;
         }
 
@@ -138,7 +138,7 @@ namespace _17nsj.app.mc.win.Views
 
             var responseText = await response.Content.ReadAsStringAsync();
             var responseDto = JsonConvert.DeserializeObject<List<NewsDto>>(responseText);
-            ObservableCollection<NewsModel> responseModel = new ObservableCollection<NewsModel>();
+            ObservableCollection<NewsModel> responseModels = new ObservableCollection<NewsModel>();
 
             foreach (var dto in responseDto)
             {
@@ -154,10 +154,10 @@ namespace _17nsj.app.mc.win.Views
                 model.CreatedAt = dto.CreatedAt;
                 model.CategoryName = category.CategoryName;
                 model.Color = category.Color;
-                responseModel.Add(model);
+                responseModels.Add(model);
             }
 
-            this.viewModel.NewsList = responseModel;
+            this.viewModel.NewsList = responseModels;
             return;
         }
     }
