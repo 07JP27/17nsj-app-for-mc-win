@@ -94,6 +94,7 @@
     <Compile Include="Models\NewsCategoryModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\NotificationObject.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Utils\HashCreater.cs" />
     <Compile Include="ViewModels\NoticesViewerViewModel.cs" />
     <Compile Include="ViewModels\NewsRegisterViewModel.cs" />

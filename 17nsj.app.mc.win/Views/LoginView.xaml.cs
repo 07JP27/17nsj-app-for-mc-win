@@ -23,6 +23,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using _17nsj.app.dto;
+using _17nsj.app.mc.win.Models;
 using _17nsj.app.mc.win.Utils;
 using _17nsj.app.mc.win.ViewModels;
 using Newtonsoft.Json;
@@ -82,7 +83,7 @@ namespace _17nsj.app.mc.win.Views
                     return;
                 }
 
-                UserDto user = await this.GetUser(this.viewModel.UserId, this.viewModel.AccessToken);
+                UserModel user = await this.GetUser(this.viewModel.UserId, this.viewModel.AccessToken);
 
                 if (user == null)
                 {
@@ -98,7 +99,7 @@ namespace _17nsj.app.mc.win.Views
 
                     childView = new AdminMenuView();
                     childViewModel.UserId = this.viewModel.UserId;
-                    childViewModel.DisplayName = this.viewModel.DisplayName;
+                    childViewModel.DisplayName = user.DisplayName;
                     childViewModel.AccessToken = this.viewModel.AccessToken;
                     childView.DataContext = childViewModel;
                 }
@@ -108,7 +109,7 @@ namespace _17nsj.app.mc.win.Views
 
                     childView = new UserMenuView();
                     childViewModel.UserId = this.viewModel.UserId;
-                    childViewModel.DisplayName = this.viewModel.DisplayName;
+                    childViewModel.DisplayName = user.DisplayName;
                     childViewModel.AccessToken = this.viewModel.AccessToken;
                     childView.DataContext = childViewModel;
                 }
@@ -191,7 +192,7 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="userId">ユーザーID</param>
         /// <param name="token">トークン</param>
         /// <returns>ユーザー情報</returns>
-        private async Task<UserDto> GetUser(string userId, string token)
+        private async Task<UserModel> GetUser(string userId, string token)
         {
             var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
             var client = new HttpClient(handler);
@@ -219,8 +220,12 @@ namespace _17nsj.app.mc.win.Views
 
             var responseText = await response.Content.ReadAsStringAsync();
             var responseDto = JsonConvert.DeserializeObject<UserDto>(responseText);
+            var responseModel = new UserModel();
+            responseModel.UserId = responseDto.UserId;
+            responseModel.DisplayName = responseDto.DisplayName;
+            responseModel.IsAdmin = responseDto.IsAdmin;
 
-            return responseDto;
+            return responseModel;
         }
     }
 }
