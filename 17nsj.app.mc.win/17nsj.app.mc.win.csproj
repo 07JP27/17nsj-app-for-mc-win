@@ -97,6 +97,7 @@
     <Compile Include="Models\NotificationObject.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Utils\HashCreater.cs" />
+    <Compile Include="ViewModels\NewsEditViewModel.cs" />
     <Compile Include="ViewModels\NoticeRegisterViewModel.cs" />
     <Compile Include="ViewModels\NoticesViewerViewModel.cs" />
     <Compile Include="ViewModels\NewsRegisterViewModel.cs" />
@@ -114,6 +115,9 @@
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NewsEditView.xaml.cs">
+      <DependentUpon>NewsEditView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\NewsRegisterView.xaml.cs">
       <DependentUpon>NewsRegisterView.xaml</DependentUpon>
@@ -193,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewsEditView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,6 +23,9 @@ namespace _17nsj.app.mc.win.ViewModels
     /// </summary>
     public class NewsViewerViewModel : ViewModelBase
     {
+        /// <summary>
+        /// ニュースカテゴリーリスト
+        /// </summary>
         private ObservableCollection<NewsCategoryModel> newsCategoryList = new ObservableCollection<NewsCategoryModel>();
 
         /// <summary>
