@@ -87,7 +87,7 @@ namespace _17nsj.app.mc.win.Views
         }
 
         /// <summary>
-        /// 大会本部からのお知らせを見るボタンが押されたときに呼ばれます。
+        /// お知らせを見るボタンが押されたときに呼ばれます。
         /// </summary>
         /// <param name="sender">sender</param>
         /// <param name="e">e</param>

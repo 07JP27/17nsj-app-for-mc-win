@@ -49,5 +49,109 @@ namespace _17nsj.app.mc.win.Views
         {
             this.viewModel = this.DataContext as AdminMenuViewModel;
         }
+
+        /// <summary>
+        /// ニュースを見るボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void ViewNewsButtonClick(object sender, RoutedEventArgs e)
+        {
+            var childView = new NewsViewerView();
+            var childViewModel = new NewsViewerViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
+        }
+
+        /// <summary>
+        /// ニュースを登録ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void AddNewsButtonClick(object sender, RoutedEventArgs e)
+        {
+            var childView = new NewsRegisterView();
+            var childViewModel = new NewsRegisterViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
+        }
+
+        /// <summary>
+        /// お知らせを見るボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void ViewNoticesButtonClick(object sender, RoutedEventArgs e)
+        {
+            var childView = new NoticesViewerView();
+            var childViewModel = new NoticesViewerViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
+        }
+
+        /// <summary>
+        /// お知らせ登録ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void AddNoticeButtonClick(object sender, RoutedEventArgs e)
+        {
+            // todo
+        }
+
+        /// <summary>
+        /// お知らせ編集ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void EditNoticeButtonClick(object sender, RoutedEventArgs e)
+        {
+            // todo
+        }
+
+        /// <summary>
+        /// ニュース編集ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void EditNewsButtonClick(object sender, RoutedEventArgs e)
+        {
+            // todo
+        }
+
+        /// <summary>
+        /// ユーザー追加ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void AddUserButtonClick(object sender, RoutedEventArgs e)
+        {
+            // todo
+        }
+
+        /// <summary>
+        /// ユーザー編集ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void EditUserButtonClick(object sender, RoutedEventArgs e)
+        {
+            // todo
+        }
     }
 }

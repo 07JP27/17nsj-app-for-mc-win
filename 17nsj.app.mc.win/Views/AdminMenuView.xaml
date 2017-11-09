@@ -5,8 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         mc:Ignorable="d"
-        Title="AdminMenuView" Height="300" Width="300" Loaded="ViewLoaded">
+        Title="AdminMenuView" Height="300" Width="600" Loaded="ViewLoaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="MCユーザー用メニュー" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px"/>
+            <Button Content="ニュースを見る" Grid.Row="1" Click="ViewNewsButtonClick" Margin="10" />
+            <Button Content="ニュースを登録" Grid.Row="2" Click="AddNewsButtonClick" Margin="10" />
+            <Button Content="お知らせを見る" Grid.Row="3" Click="ViewNoticesButtonClick" Margin="10" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Text="管理者用メニュー" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px"/>
+            <Button Content="お知らせを登録" Grid.Row="1" Click="AddNoticeButtonClick" Margin="10" />
+            <Button Content="お知らせを変更" Grid.Row="2" Click="EditNoticeButtonClick" Margin="10" />
+            <Button Content="ニュースを変更" Grid.Row="2" Click="EditNewsButtonClick" Margin="10" />
+            <Button Content="ユーザーを登録" Grid.Row="3" Click="AddUserButtonClick" Margin="10" />
+            <Button Content="ユーザーを変更" Grid.Row="4" Click="EditUserButtonClick" Margin="10" />
+        </Grid>
     </Grid>
 </Window>
