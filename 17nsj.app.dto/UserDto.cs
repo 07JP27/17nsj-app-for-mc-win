@@ -34,10 +34,38 @@ namespace _17nsj.app.dto
         public string DisplayName { get; set; }
 
         /// <summary>
+        /// パスワードを取得または設定します。
+        /// </summary>
+        /// <value>パスワード</value>
+        [JsonProperty("Password", NullValueHandling = NullValueHandling.Ignore)]
+        public string Password { get; set; }
+
+        /// <summary>
         /// 管理者フラグを取得または設定します。
         /// </summary>
         /// <value>管理者フラグ</value>
         [JsonProperty("IsAdmin", NullValueHandling = NullValueHandling.Ignore)]
         public bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// 読み取り権限フラグを取得または設定します。
+        /// </summary>
+        /// <value>読み取り権限フラグ</value>
+        [JsonProperty("CanRead", NullValueHandling = NullValueHandling.Ignore)]
+        public bool CanRead { get; set; }
+
+        /// <summary>
+        /// 書き込み権限フラグを取得または設定します。
+        /// </summary>
+        /// <value>書き込み権限フラグ</value>
+        [JsonProperty("CanWrite", NullValueHandling = NullValueHandling.Ignore)]
+        public bool CanWrite { get; set; }
+
+        /// <summary>
+        /// 有効フラグを取得または設定します。
+        /// </summary>
+        /// <value>有効フラグ</value>
+        [JsonProperty("IsAvailable", NullValueHandling = NullValueHandling.Ignore)]
+        public bool IsAvailable { get; set; }
     }
 }

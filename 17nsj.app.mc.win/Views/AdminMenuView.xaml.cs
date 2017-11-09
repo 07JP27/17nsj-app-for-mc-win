@@ -157,7 +157,15 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private void AddUserButtonClick(object sender, RoutedEventArgs e)
         {
-            // todo
+            var childView = new UserRegisterView();
+            var childViewModel = new UserRegisterViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            childView.ShowDialog();
         }
 
         /// <summary>

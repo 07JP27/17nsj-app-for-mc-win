@@ -105,6 +105,7 @@
     <Compile Include="ViewModels\UserMenuViewModel.cs" />
     <Compile Include="ViewModels\AdminMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\UserRegisterViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\AdminMenuView.xaml.cs">
       <DependentUpon>AdminMenuView.xaml</DependentUpon>
@@ -133,6 +134,9 @@
     </Compile>
     <Compile Include="Views\UserMenuView.xaml.cs">
       <DependentUpon>UserMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserRegisterView.xaml.cs">
+      <DependentUpon>UserRegisterView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -221,6 +225,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserRegisterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
