@@ -24,7 +24,7 @@ namespace _17nsj.app.dto
         /// </summary>
         /// <value>ユーザーID</value>
         [JsonProperty("Category", NullValueHandling = NullValueHandling.Ignore)]
-        public char Category { get; set; }
+        public string Category { get; set; }
 
         /// <summary>
         /// 通し番号を取得または設定します。
@@ -67,5 +67,12 @@ namespace _17nsj.app.dto
         /// <value>配信日時</value>
         [JsonProperty("CreatedAt", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime CreatedAt { get; set; }
+
+        /// <summary>
+        /// 有効フラグを取得または設定します。
+        /// </summary>
+        /// <value>有効フラグ</value>
+        [JsonProperty("IsAvailable", NullValueHandling = NullValueHandling.Ignore)]
+        public bool IsAvailable { get; set; }
     }
 }

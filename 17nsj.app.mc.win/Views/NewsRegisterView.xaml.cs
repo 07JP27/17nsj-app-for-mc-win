@@ -105,5 +105,49 @@ namespace _17nsj.app.mc.win.Views
             this.viewModel.CategoryList = responseModel;
             return;
         }
+
+        /// <summary>
+        /// 登録ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private async void SubmitButtonClick(object sender, RoutedEventArgs e)
+        {
+            var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
+            var client = new HttpClient(handler);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.viewModel.AccessToken);
+
+            var tokenSource = new CancellationTokenSource();
+            var url = new Uri($"{App.WebServerApiUrl}news");
+            var dto = new NewsDto();
+            dto.Category = this.viewModel.SelectedCategory.Category;
+            dto.Author = this.viewModel.Author;
+            dto.Title = this.viewModel.Title;
+            dto.Outline = this.viewModel.Outline;
+            dto.MediaURL = this.viewModel.MediaURL;
+            dto.IsAvailable = true;
+
+            var jsonData = JsonConvert.SerializeObject(dto);
+            var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var response = await client.PostAsync(url, content);
+
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                string location = response.Headers.Location.ToString();
+                string[] locationArr = location.Split('/');
+                string category = locationArr[locationArr.Length - 2];
+                string id = locationArr[locationArr.Length - 1];
+                this.viewModel.Result = $"共有フォルダ→{category}フォルダ→{id}フォルダに本記事に関する写真・文章等を入れてください。";
+
+                this.viewModel.SelectedCategory = null;
+                this.viewModel.Title = string.Empty;
+                this.viewModel.Outline = string.Empty;
+                this.viewModel.MediaURL = string.Empty;
+            }
+            else
+            {
+                MessageBox.Show(await response.Content.ReadAsStringAsync());
+            }
+        }
     }
 }

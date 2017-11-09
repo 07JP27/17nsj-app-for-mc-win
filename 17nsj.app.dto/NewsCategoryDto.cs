@@ -24,7 +24,7 @@ namespace _17nsj.app.dto
         /// </summary>
         /// <value>カテゴリー</value>
         [JsonProperty("Category", NullValueHandling = NullValueHandling.Ignore)]
-        public char Category { get; set; }
+        public string Category { get; set; }
 
         /// <summary>
         /// カテゴリー名を取得または設定します。

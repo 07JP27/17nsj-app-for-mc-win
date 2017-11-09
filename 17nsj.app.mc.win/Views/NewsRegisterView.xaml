@@ -25,7 +25,7 @@
         <Label Grid.Row="0" Grid.Column="0" Content="カテゴリ" HorizontalContentAlignment="Right"/>
         <ComboBox Grid.Row="0" Grid.Column="1" 
                   ItemsSource="{Binding Path=CategoryList, UpdateSourceTrigger=PropertyChanged }" 
-                  SelectedValuePath="{Binding Path=Category, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding Path=SelectedCategory, UpdateSourceTrigger=PropertyChanged}" 
                   DisplayMemberPath="CategoryName"/>
         <Label Grid.Row="1" Grid.Column="0" Content="タイトル" HorizontalContentAlignment="Right"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" />
@@ -35,7 +35,7 @@
         <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Margin="0,5" Height="Auto" VerticalAlignment="Stretch"  Text="{Binding Path=Outline, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Row="4" Grid.Column="0" Content="メディアURL" HorizontalContentAlignment="Right"/>
         <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=MediaURL, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Grid.Row="5" Grid.Column="1" Content="登録" Width="50px" HorizontalAlignment="Left"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="登録" Width="50px" HorizontalAlignment="Left" Click="SubmitButtonClick"/>
         <Border Grid.Row="6" Grid.Column="1" BorderThickness="1" BorderBrush="Black">
             <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" />
         </Border>

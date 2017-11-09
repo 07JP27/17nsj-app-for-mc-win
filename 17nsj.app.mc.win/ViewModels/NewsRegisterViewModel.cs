@@ -26,9 +26,9 @@ namespace _17nsj.app.mc.win.ViewModels
         private ObservableCollection<NewsCategoryModel> categoryList = new ObservableCollection<NewsCategoryModel>();
 
         /// <summary>
-        /// カテゴリー
+        /// 選択中のカテゴリー
         /// </summary>
-        private char category;
+        private NewsCategoryModel selectedCategory;
 
         /// <summary>
         /// タイトル
@@ -80,18 +80,18 @@ namespace _17nsj.app.mc.win.ViewModels
         /// カテゴリーを取得または設定します。
         /// </summary>
         /// <value>カテゴリー</value>
-        public char Category
+        public NewsCategoryModel SelectedCategory
         {
             get
             {
-                return this.category;
+                return this.selectedCategory;
             }
 
             set
             {
-                if (this.category != value)
+                if (this.selectedCategory != value)
                 {
-                    this.category = value;
+                    this.selectedCategory = value;
                     this.RaisePropertyChanged();
                 }
             }
