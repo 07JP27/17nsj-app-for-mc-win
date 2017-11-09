@@ -56,7 +56,7 @@ namespace _17nsj.app.mc.win.Views
         private async void ViewLoaded(object sender, RoutedEventArgs e)
         {
             this.viewModel = this.DataContext as NewsRegisterViewModel;
-
+            this.viewModel.Author = this.viewModel.DisplayName;
             await this.GetNewsCategoryList();
         }
 

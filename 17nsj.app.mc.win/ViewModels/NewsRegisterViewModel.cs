@@ -26,6 +26,36 @@ namespace _17nsj.app.mc.win.ViewModels
         private ObservableCollection<NewsCategoryModel> categoryList = new ObservableCollection<NewsCategoryModel>();
 
         /// <summary>
+        /// カテゴリー
+        /// </summary>
+        private char category;
+
+        /// <summary>
+        /// タイトル
+        /// </summary>
+        private string title;
+
+        /// <summary>
+        /// 著者
+        /// </summary>
+        private string author;
+
+        /// <summary>
+        /// 概要
+        /// </summary>
+        private string outline;
+
+        /// <summary>
+        /// メディアURL
+        /// </summary>
+        private string mediaURL;
+
+        /// <summary>
+        /// 登録結果
+        /// </summary>
+        private string result;
+
+        /// <summary>
         /// ニュースカテゴリーリストを取得または設定します。
         /// </summary>
         /// <value>ニュースカテゴリーリスト</value>
@@ -41,6 +71,132 @@ namespace _17nsj.app.mc.win.ViewModels
                 if (this.categoryList != value)
                 {
                     this.categoryList = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// カテゴリーを取得または設定します。
+        /// </summary>
+        /// <value>カテゴリー</value>
+        public char Category
+        {
+            get
+            {
+                return this.category;
+            }
+
+            set
+            {
+                if (this.category != value)
+                {
+                    this.category = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// タイトルを取得または設定します。
+        /// </summary>
+        /// <value>タイトル</value>
+        public string Title
+        {
+            get
+            {
+                return this.title;
+            }
+
+            set
+            {
+                if (this.title != value)
+                {
+                    this.title = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 著者を取得または設定します。
+        /// </summary>
+        /// <value>著者</value>
+        public string Author
+        {
+            get
+            {
+                return this.author;
+            }
+
+            set
+            {
+                if (this.author != value)
+                {
+                    this.author = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 概要を取得または設定します。
+        /// </summary>
+        /// <value>概要</value>
+        public string Outline
+        {
+            get
+            {
+                return this.outline;
+            }
+
+            set
+            {
+                if (this.outline != value)
+                {
+                    this.outline = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// メディアURLを取得または設定します。
+        /// </summary>
+        /// <value>メディアURL</value>
+        public string MediaURL
+        {
+            get
+            {
+                return this.mediaURL;
+            }
+
+            set
+            {
+                if (this.mediaURL != value)
+                {
+                    this.mediaURL = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 登録結果を取得または設定します。
+        /// </summary>
+        /// <value>登録結果</value>
+        public string Result
+        {
+            get
+            {
+                return this.result;
+            }
+
+            set
+            {
+                if (this.result != value)
+                {
+                    this.result = value;
                     this.RaisePropertyChanged();
                 }
             }
