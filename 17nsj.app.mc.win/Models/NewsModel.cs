@@ -26,7 +26,7 @@ namespace _17nsj.app.mc.win.Models
         /// <summary>
         /// 通し番号
         /// </summary>
-        private string id;
+        private int id;
 
         /// <summary>
         /// 著者
@@ -88,7 +88,7 @@ namespace _17nsj.app.mc.win.Models
         /// 通し番号を取得または設定します。
         /// </summary>
         /// <value>通し番号</value>
-        public string Id
+        public int Id
         {
             get
             {

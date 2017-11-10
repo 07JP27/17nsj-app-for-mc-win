@@ -139,8 +139,8 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private void EditNewsButtonClick(object sender, RoutedEventArgs e)
         {
-            var childView = new NewsEditView();
-            var childViewModel = new NewsEditViewModel();
+            var childView = new NewsManageView();
+            var childViewModel = new NewsManageViewModel();
 
             childViewModel.UserId = this.viewModel.UserId;
             childViewModel.DisplayName = this.viewModel.DisplayName;

@@ -31,7 +31,7 @@ namespace _17nsj.app.dto
         /// </summary>
         /// <value>通し番号</value>
         [JsonProperty("Id", NullValueHandling = NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// 著者を取得または設定します。
