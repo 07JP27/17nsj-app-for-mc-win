@@ -43,6 +43,11 @@ namespace _17nsj.app.mc.win.ViewModels
         private int id;
 
         /// <summary>
+        /// シリアルID
+        /// </summary>
+        private string serialId;
+
+        /// <summary>
         /// 著者
         /// </summary>
         private string author;
@@ -61,6 +66,11 @@ namespace _17nsj.app.mc.win.ViewModels
         /// メディアURL
         /// </summary>
         private string medhiaUrl;
+
+        /// <summary>
+        /// 配信日
+        /// </summary>
+        private DateTime createdAt;
 
         /// <summary>
         /// 更新結果を取得または設定します。
@@ -147,6 +157,27 @@ namespace _17nsj.app.mc.win.ViewModels
         }
 
         /// <summary>
+        /// シリアルIDを取得または設定します。
+        /// </summary>
+        /// <value>シリアルID</value>
+        public string SerialId
+        {
+            get
+            {
+                return this.serialId;
+            }
+
+            set
+            {
+                if (this.serialId != value)
+                {
+                    this.serialId = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
         /// 著者を取得または設定します。
         /// </summary>
         /// <value>著者</value>
@@ -225,6 +256,27 @@ namespace _17nsj.app.mc.win.ViewModels
                 if (this.medhiaUrl != value)
                 {
                     this.medhiaUrl = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 配信日を取得または設定します。
+        /// </summary>
+        /// <value>配信日</value>
+        public DateTime CreatedAt
+        {
+            get
+            {
+                return this.createdAt;
+            }
+
+            set
+            {
+                if (this.createdAt != value)
+                {
+                    this.createdAt = value;
                     this.RaisePropertyChanged();
                 }
             }

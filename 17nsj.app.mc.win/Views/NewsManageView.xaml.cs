@@ -212,6 +212,8 @@ namespace _17nsj.app.mc.win.Views
             childViewModel.DisplayName = this.viewModel.DisplayName;
             childViewModel.AccessToken = this.viewModel.AccessToken;
             childViewModel.Color = this.viewModel.SelectedNews.Color;
+            childViewModel.SerialId = this.viewModel.SelectedNews.SerialId;
+            childViewModel.CreatedAt = this.viewModel.SelectedNews.CreatedAt;
             childViewModel.Category = this.viewModel.SelectedNews.Category;
             childViewModel.Id = this.viewModel.SelectedNews.Id;
             childViewModel.Title = this.viewModel.SelectedNews.Title;

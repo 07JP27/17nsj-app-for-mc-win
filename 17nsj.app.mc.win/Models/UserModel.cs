@@ -34,6 +34,16 @@ namespace _17nsj.app.mc.win.Models
         private bool isAdmin;
 
         /// <summary>
+        /// 読み取り権限
+        /// </summary>
+        private bool canRead;
+
+        /// <summary>
+        /// 書き込み権限
+        /// </summary>
+        private bool canWrite;
+
+        /// <summary>
         /// ユーザーIDを取得または設定します。
         /// </summary>
         /// <value>ユーザーID</value>
@@ -91,6 +101,48 @@ namespace _17nsj.app.mc.win.Models
                 if (this.isAdmin != value)
                 {
                     this.isAdmin = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 読み取り権限を取得または設定します。
+        /// </summary>
+        /// <value>読み取り権限</value>
+        public bool CanRead
+        {
+            get
+            {
+                return this.canRead;
+            }
+
+            set
+            {
+                if (this.canRead != value)
+                {
+                    this.canRead = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 書き込み権限を取得または設定します。
+        /// </summary>
+        /// <value>書き込み権限</value>
+        public bool CanWrite
+        {
+            get
+            {
+                return this.canWrite;
+            }
+
+            set
+            {
+                if (this.canWrite != value)
+                {
+                    this.canWrite = value;
                     this.RaisePropertyChanged();
                 }
             }

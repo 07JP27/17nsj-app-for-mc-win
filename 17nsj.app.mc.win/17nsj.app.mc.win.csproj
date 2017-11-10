@@ -104,6 +104,7 @@
     <Compile Include="ViewModels\NoticesViewerViewModel.cs" />
     <Compile Include="ViewModels\NewsRegisterViewModel.cs" />
     <Compile Include="ViewModels\NewsViewerViewModel.cs" />
+    <Compile Include="ViewModels\UserManageViewModel.cs" />
     <Compile Include="ViewModels\UserMenuViewModel.cs" />
     <Compile Include="ViewModels\AdminMenuViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
@@ -136,6 +137,9 @@
     </Compile>
     <Compile Include="Views\NoticesViewerView.xaml.cs">
       <DependentUpon>NoticesViewerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserManageView.xaml.cs">
+      <DependentUpon>UserManageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserMenuView.xaml.cs">
       <DependentUpon>UserMenuView.xaml</DependentUpon>
@@ -230,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NoticesViewerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserManageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
