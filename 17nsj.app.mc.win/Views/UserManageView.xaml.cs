@@ -67,7 +67,13 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private void UserEditButtonClicked(object sender, RoutedEventArgs e)
         {
-            // todo
+            if (this.viewModel.SelectedUser == null)
+            {
+                MessageBox.Show("編集するユーザーを選択してください。");
+                return;
+            }
+
+            this.OpenEditView();
         }
 
         /// <summary>
@@ -77,7 +83,7 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private void UserDoubleClicked(object sender, MouseButtonEventArgs e)
         {
-            // todo
+            this.OpenEditView();
         }
 
         /// <summary>
@@ -128,6 +134,22 @@ namespace _17nsj.app.mc.win.Views
             this.viewModel.UserList = responseModels;
             this.viewModel.FilteredUserList = responseModels;
             return;
+        }
+
+        /// <summary>
+        /// 編集画面を開きます。
+        /// </summary>
+        private void OpenEditView()
+        {
+            var childView = new UserEditView();
+            var childViewModel = new UserEditViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            var dialogResult = childView.ShowDialog();
         }
     }
 }
