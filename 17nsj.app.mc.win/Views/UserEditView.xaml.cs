@@ -37,11 +37,36 @@ namespace _17nsj.app.mc.win.Views
     public partial class UserEditView : Window
     {
         /// <summary>
+        /// ViewModel
+        /// </summary>
+        private UserEditViewModel viewModel;
+
+        /// <summary>
         /// コンストラクタ
         /// </summary>
         public UserEditView()
         {
             this.InitializeComponent();
+        }
+
+        /// <summary>
+        /// 画面が読み込まれた後に呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void ViewLoaded(object sender, RoutedEventArgs e)
+        {
+            this.viewModel = this.DataContext as UserEditViewModel;
+        }
+
+        /// <summary>
+        /// 更新ボタンが押されたときに呼ばれます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void SubmitButtonClicked(object sender, RoutedEventArgs e)
+        {
+            // todo
         }
     }
 }

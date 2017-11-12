@@ -147,6 +147,11 @@ namespace _17nsj.app.mc.win.Views
             childViewModel.UserId = this.viewModel.UserId;
             childViewModel.DisplayName = this.viewModel.DisplayName;
             childViewModel.AccessToken = this.viewModel.AccessToken;
+            childViewModel.TargetUserId = this.viewModel.SelectedUser.UserId;
+            childViewModel.TargetDisplayName = this.viewModel.SelectedUser.DisplayName;
+            childViewModel.TargetCanRead = this.viewModel.SelectedUser.CanRead;
+            childViewModel.TargetCanWrite = this.viewModel.SelectedUser.CanWrite;
+            childViewModel.TargetIsAdmin = this.viewModel.SelectedUser.IsAdmin;
             childView.DataContext = childViewModel;
             childView.Owner = this;
             var dialogResult = childView.ShowDialog();

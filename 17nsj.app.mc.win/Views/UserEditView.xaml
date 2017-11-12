@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         mc:Ignorable="d"
-        Title="UserEditView" Height="300" Width="300">
+        Title="UserEditView" Height="300" Width="300" Loaded="ViewLoaded">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Content="ユーザーID" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=TargetUserId, UpdateSourceTrigger=PropertyChanged}" Margin="5,0" />
+        <Label Grid.Column="0" Grid.Row="1" Content="表示名" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=TargetDisplayName, UpdateSourceTrigger=PropertyChanged}" Margin="5,0" />
+        <Label Grid.Column="0" Grid.Row="3" Content="権限" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <CheckBox Content="管理者権限" IsChecked="{Binding Path=TargetIsAdmin, UpdateSourceTrigger=PropertyChanged}" />
+            <CheckBox Content="読み取り権限" IsChecked="{Binding Path=TargetCanRead, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,0,0" />
+            <CheckBox Content="書き込み権限" IsChecked="{Binding Path=TargetCanWrite, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,0,0" />
+        </StackPanel>
+        <Button Grid.Column="1" Grid.Row="4" Content="更新" Click="SubmitButtonClicked" Width="100" HorizontalAlignment="Left"/>
     </Grid>
 </Window>
