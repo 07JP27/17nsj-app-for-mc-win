@@ -21,9 +21,23 @@
                 </Grid.ColumnDefinitions>
             <Button Grid.Column="3" Content="編集" Click="UserEditButtonClicked"/>
         </Grid>
-        <DataGrid Grid.Row="1" Margin="5" ItemsSource="{Binding Path=FilteredUserList, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding Path=SelectedUser, UpdateSourceTrigger=PropertyChanged}" MouseDoubleClick="UserDoubleClicked" IsReadOnly="True">
-            
+        <DataGrid Grid.Row="1" 
+                  Margin="5" 
+                  ItemsSource="{Binding Path=FilteredUserList, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding Path=SelectedUser, UpdateSourceTrigger=PropertyChanged}" 
+                  MouseDoubleClick="UserDoubleClicked" 
+                  IsReadOnly="True"
+                  CanUserSortColumns="False"
+                  AutoGenerateColumns="False"
+                  HorizontalScrollBarVisibility="Disabled"
+                  HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ユーザーID" Width="1*" Binding="{Binding Path=UserId, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="表示名" Width="1*" Binding="{Binding Path=DisplayName, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridCheckBoxColumn Header="読み取り権限" Width="1*" Binding="{Binding Path=CanRead, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridCheckBoxColumn Header="書き込み権限" Width="1*" Binding="{Binding Path=CanWrite, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridCheckBoxColumn Header="管理者権限" Width="1*" Binding="{Binding Path=IsAdmin, UpdateSourceTrigger=PropertyChanged}" />
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Window>
