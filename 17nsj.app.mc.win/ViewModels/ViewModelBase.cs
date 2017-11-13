@@ -35,6 +35,11 @@ namespace _17nsj.app.mc.win.ViewModels
         private string accessToken;
 
         /// <summary>
+        /// 処理中かどうか
+        /// </summary>
+        private bool isBusy;
+
+        /// <summary>
         /// ユーザーIDを取得または設定します。
         /// </summary>
         /// <value>ユーザーID</value>
@@ -92,6 +97,27 @@ namespace _17nsj.app.mc.win.ViewModels
                 if (this.accessToken != value)
                 {
                     this.accessToken = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 処理中かどうかを取得または設定します。
+        /// </summary>
+        /// <value>処理中かどうか</value>
+        public bool IsBusy
+        {
+            get
+            {
+                return this.isBusy;
+            }
+
+            set
+            {
+                if (this.isBusy != value)
+                {
+                    this.isBusy = value;
                     this.RaisePropertyChanged();
                 }
             }
