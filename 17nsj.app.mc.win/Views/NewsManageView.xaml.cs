@@ -58,8 +58,10 @@ namespace _17nsj.app.mc.win.Views
         {
             this.viewModel = this.DataContext as NewsManageViewModel;
 
+            this.viewModel.IsBusy = true;
             await this.GetNewsCategoryList();
             await this.GetNewsList();
+            this.viewModel.IsBusy = false;
         }
 
         /// <summary>
