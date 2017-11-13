@@ -68,7 +68,7 @@
         <!--ローディング-->
         <Border BorderBrush="Black" BorderThickness="1" Background="#80000000" Visibility="{Binding Path=IsBusy, Converter={StaticResource boolConverter}}" Grid.ColumnSpan="2">
             <Grid>
-                <TextBlock Margin="0" TextWrapping="Wrap" Text="Please Wait..." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="#7EFFFFFF"/>
+                <MediaElement Source="../Asset/loading.gif" LoadedBehavior="Play" Margin="300,0"/>
             </Grid>
         </Border>
     </Grid>
