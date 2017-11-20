@@ -93,15 +93,12 @@
     </ApplicationDefinition>
     <Compile Include="Models\NewsCategoryModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
-    <Compile Include="Models\NoticeModel.cs" />
     <Compile Include="Models\NotificationObject.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Utils\HashCreater.cs" />
     <Compile Include="Utils\HttpClientExtensions.cs" />
     <Compile Include="ViewModels\NewsEditViewModel.cs" />
     <Compile Include="ViewModels\NewsManageViewModel.cs" />
-    <Compile Include="ViewModels\NoticeRegisterViewModel.cs" />
-    <Compile Include="ViewModels\NoticesViewerViewModel.cs" />
     <Compile Include="ViewModels\NewsRegisterViewModel.cs" />
     <Compile Include="ViewModels\NewsViewerViewModel.cs" />
     <Compile Include="ViewModels\UserEditViewModel.cs" />
@@ -132,12 +129,6 @@
     </Compile>
     <Compile Include="Views\NewsViewerView.xaml.cs">
       <DependentUpon>NewsViewerView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NoticeRegisterView.xaml.cs">
-      <DependentUpon>NoticeRegisterView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\NoticesViewerView.xaml.cs">
-      <DependentUpon>NoticesViewerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserEditView.xaml.cs">
       <DependentUpon>UserEditView.xaml</DependentUpon>
@@ -230,14 +221,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NewsViewerView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NoticeRegisterView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\NoticesViewerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

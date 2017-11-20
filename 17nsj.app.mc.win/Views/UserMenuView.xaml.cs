@@ -85,23 +85,5 @@ namespace _17nsj.app.mc.win.Views
             childView.Owner = this;
             childView.ShowDialog();
         }
-
-        /// <summary>
-        /// お知らせを見るボタンが押されたときに呼ばれます。
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">e</param>
-        private void ViewNoticesButtonClick(object sender, RoutedEventArgs e)
-        {
-            var childView = new NoticesViewerView();
-            var childViewModel = new NoticesViewerViewModel();
-
-            childViewModel.UserId = this.viewModel.UserId;
-            childViewModel.DisplayName = this.viewModel.DisplayName;
-            childViewModel.AccessToken = this.viewModel.AccessToken;
-            childView.DataContext = childViewModel;
-            childView.Owner = this;
-            childView.ShowDialog();
-        }
     }
 }

@@ -87,42 +87,6 @@ namespace _17nsj.app.mc.win.Views
         }
 
         /// <summary>
-        /// お知らせを見るボタンが押されたときに呼ばれます。
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">e</param>
-        private void ViewNoticesButtonClick(object sender, RoutedEventArgs e)
-        {
-            var childView = new NoticesViewerView();
-            var childViewModel = new NoticesViewerViewModel();
-
-            childViewModel.UserId = this.viewModel.UserId;
-            childViewModel.DisplayName = this.viewModel.DisplayName;
-            childViewModel.AccessToken = this.viewModel.AccessToken;
-            childView.DataContext = childViewModel;
-            childView.Owner = this;
-            childView.ShowDialog();
-        }
-
-        /// <summary>
-        /// お知らせ登録ボタンが押されたときに呼ばれます。
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">e</param>
-        private void AddNoticeButtonClick(object sender, RoutedEventArgs e)
-        {
-            var childView = new NoticeRegisterView();
-            var childViewModel = new NoticeRegisterViewModel();
-
-            childViewModel.UserId = this.viewModel.UserId;
-            childViewModel.DisplayName = this.viewModel.DisplayName;
-            childViewModel.AccessToken = this.viewModel.AccessToken;
-            childView.DataContext = childViewModel;
-            childView.Owner = this;
-            childView.ShowDialog();
-        }
-
-        /// <summary>
         /// お知らせ編集ボタンが押されたときに呼ばれます。
         /// </summary>
         /// <param name="sender">sender</param>
@@ -141,24 +105,6 @@ namespace _17nsj.app.mc.win.Views
         {
             var childView = new NewsManageView();
             var childViewModel = new NewsManageViewModel();
-
-            childViewModel.UserId = this.viewModel.UserId;
-            childViewModel.DisplayName = this.viewModel.DisplayName;
-            childViewModel.AccessToken = this.viewModel.AccessToken;
-            childView.DataContext = childViewModel;
-            childView.Owner = this;
-            childView.ShowDialog();
-        }
-
-        /// <summary>
-        /// ユーザー追加ボタンが押されたときに呼ばれます。
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">e</param>
-        private void AddUserButtonClick(object sender, RoutedEventArgs e)
-        {
-            var childView = new UserRegisterView();
-            var childViewModel = new UserRegisterViewModel();
 
             childViewModel.UserId = this.viewModel.UserId;
             childViewModel.DisplayName = this.viewModel.DisplayName;

@@ -94,7 +94,7 @@ namespace _17nsj.app.mc.win.Views
             var responseText = await response.Content.ReadAsStringAsync();
             var responseDto = JsonConvert.DeserializeObject<List<NewsCategoryDto>>(responseText);
             ObservableCollection<NewsCategoryModel> responseModels = new ObservableCollection<NewsCategoryModel>();
-            responseModels.Add(new NewsCategoryModel() { Category = null, CategoryName = "すべて" });
+            responseModels.Add(new NewsCategoryModel() { Category = '\0', CategoryName = "すべて" });
 
             foreach (var dto in responseDto)
             {
@@ -160,7 +160,7 @@ namespace _17nsj.app.mc.win.Views
             }
 
             this.viewModel.NewsList = responseModels;
-            this.FilterNewsList(null);
+            this.FilterNewsList('\0');
             return;
         }
 
@@ -226,9 +226,9 @@ namespace _17nsj.app.mc.win.Views
 
             if (dialogResult == true)
             {
-                if (this.viewModel.SelectedNewsCategory.Category == null)
+                if (this.viewModel.SelectedNewsCategory.Category == '\0')
                 {
-                    this.RefreshNewsList(null);
+                    this.RefreshNewsList('\0');
                 }
                 else
                 {
@@ -241,7 +241,7 @@ namespace _17nsj.app.mc.win.Views
         /// リストを更新して検索条件を適用します。
         /// </summary>
         /// <param name="category">カテゴリー</param>
-        private async void RefreshNewsList(string category)
+        private async void RefreshNewsList(char category)
         {
             await this.GetNewsList();
             this.FilterNewsList(category);
@@ -252,9 +252,9 @@ namespace _17nsj.app.mc.win.Views
         /// 引数がnullの場合はFilteredNewsList = NewsListになります。
         /// </summary>
         /// <param name="category">カテゴリ</param>
-        private void FilterNewsList(string category)
+        private void FilterNewsList(char category)
         {
-            if (string.IsNullOrEmpty(category))
+            if (category == '\0')
             {
                 this.viewModel.FilteredNewsList = this.viewModel.NewsList;
             }

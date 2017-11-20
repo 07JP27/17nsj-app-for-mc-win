@@ -35,7 +35,7 @@ namespace _17nsj.app.mc.win.ViewModels
         /// <summary>
         /// カテゴリ
         /// </summary>
-        private string category;
+        private char category;
 
         /// <summary>
         /// ID
@@ -118,7 +118,7 @@ namespace _17nsj.app.mc.win.ViewModels
         /// カテゴリーを取得または設定します。
         /// </summary>
         /// <value>カテゴリー</value>
-        public string Category
+        public char Category
         {
             get
             {

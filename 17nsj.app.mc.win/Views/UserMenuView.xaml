@@ -16,7 +16,6 @@
         <TextBlock Text="MCユーザー用メニュー" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px"/>
         <Button Content="ニュースを見る" Grid.Row="1" Click="ViewNewsButtonClick" Margin="10" />
         <Button Content="ニュースを登録" Grid.Row="2" Click="AddNewsButtonClick" Margin="10" />
-        <Button Content="お知らせを見る" Grid.Row="3" Click="ViewNoticesButtonClick" Margin="10" />
 
     </Grid>
 </Window>

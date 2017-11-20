@@ -21,7 +21,7 @@ namespace _17nsj.app.mc.win.Models
         /// <summary>
         /// カテゴリー
         /// </summary>
-        private string category;
+        private char category;
 
         /// <summary>
         /// 通し番号
@@ -67,7 +67,7 @@ namespace _17nsj.app.mc.win.Models
         /// カテゴリーを取得または設定します。
         /// </summary>
         /// <value>カテゴリー</value>
-        public string Category
+        public char Category
         {
             get
             {
