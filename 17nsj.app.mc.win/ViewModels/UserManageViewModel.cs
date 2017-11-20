@@ -25,12 +25,12 @@ namespace _17nsj.app.mc.win.ViewModels
         /// <summary>
         /// ユーザーリスト
         /// </summary>
-        private ObservableCollection<UserModel> userList = new ObservableCollection<UserModel>();
+        private ObservableCollection<UserModel> userList;
 
         /// <summary>
         /// フィルタされたユーザー
         /// </summary>
-        private ObservableCollection<UserModel> filteredUserList = new ObservableCollection<UserModel>();
+        private ObservableCollection<UserModel> filteredUserList;
 
         /// <summary>
         /// 選択中のユーザー

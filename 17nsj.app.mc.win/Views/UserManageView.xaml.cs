@@ -57,7 +57,9 @@ namespace _17nsj.app.mc.win.Views
         private async void ViewLoaded(object sender, RoutedEventArgs e)
         {
             this.viewModel = this.DataContext as UserManageViewModel;
+            this.viewModel.IsBusy = true;
             await this.GetUserList();
+            this.viewModel.IsBusy = false;
         }
 
         /// <summary>

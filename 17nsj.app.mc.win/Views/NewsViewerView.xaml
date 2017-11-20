@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
+        xmlns:conv="clr-namespace:_17nsj.app.mc.win.Converter"
         mc:Ignorable="d"
         Title="NewsViewerView" Height="500" Width="800" Loaded="ViewLoaded">
+    <Window.Resources>
+        <conv:BoolToVisibilityConverter x:Key="boolConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250" />
@@ -60,5 +64,12 @@
             <TextBlock Grid.Row="4" Text="{Binding Path=SelectedOutline, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Grid.Row="5" Text="{Binding Path=SelectedMediaURL, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
+        
+        <!--ローディング-->
+        <Border BorderBrush="Black" BorderThickness="1" Background="#80000000" Visibility="{Binding Path=IsBusy, Converter={StaticResource boolConverter}}" Grid.ColumnSpan="2">
+            <Grid>
+                <MediaElement Source="../Asset/loading.gif" LoadedBehavior="Play" Margin="300,0"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
