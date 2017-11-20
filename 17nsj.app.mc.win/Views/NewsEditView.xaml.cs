@@ -87,7 +87,7 @@ namespace _17nsj.app.mc.win.Views
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var response = await client.PatchAsync(url, content);
 
-            if (response.StatusCode == HttpStatusCode.Created)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 string location = response.Headers.Location.ToString();
                 string[] locationArr = location.Split('/');

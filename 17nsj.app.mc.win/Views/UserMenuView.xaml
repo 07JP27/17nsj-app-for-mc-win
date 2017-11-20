@@ -13,7 +13,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Text="MCユーザー用メニュー" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px"/>
+        <TextBlock Text="ユーザー用メニュー" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20px"/>
         <Button Content="ニュースを見る" Grid.Row="1" Click="ViewNewsButtonClick" Margin="10" />
         <Button Content="ニュースを登録" Grid.Row="2" Click="AddNewsButtonClick" Margin="10" />
 
