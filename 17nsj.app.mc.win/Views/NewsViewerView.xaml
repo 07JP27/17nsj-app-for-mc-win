@@ -20,11 +20,11 @@
                 <RowDefinition Height="50" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
+            <Label Content="タイトルと概要を検索" />
             <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,20,0,0">
                 <TextBox Width="200" Margin="10,0" Text="{Binding Path=SerchText, UpdateSourceTrigger=PropertyChanged}" />
                 <Button Content="検索" Click="NewsSerchClicked"/>
             </StackPanel>
-            <Label Content="タイトルと概要を検索" />
             <ListBox Grid.Row="1" ItemsSource="{Binding Path=FilteredNewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedNews, UpdateSourceTrigger=PropertyChanged}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -84,12 +84,10 @@
         </Grid>
         
         <!--ローディング-->
-        <!--
         <Border BorderBrush="Black" BorderThickness="1" Background="#80000000" Visibility="{Binding Path=IsBusy, Converter={StaticResource boolConverter}}" Grid.ColumnSpan="2">
             <Grid>
                 <MediaElement Source="../Asset/loading.gif" LoadedBehavior="Play" Margin="300,0"/>
             </Grid>
         </Border>
-        -->
     </Grid>
 </Window>

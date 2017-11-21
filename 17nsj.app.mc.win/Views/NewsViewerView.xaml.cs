@@ -198,6 +198,8 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private void NewsSerchClicked(object sender, RoutedEventArgs e)
         {
+            this.viewModel.IsBusy = true;
+
             var serchText = this.viewModel.SerchText;
 
             if (string.IsNullOrEmpty(serchText))
@@ -219,6 +221,8 @@ namespace _17nsj.app.mc.win.Views
             }
 
             this.viewModel.FilteredNewsList = filteredNewsList;
+
+            this.viewModel.IsBusy = false;
         }
     }
 }
