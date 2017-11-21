@@ -113,6 +113,11 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private async void SubmitButtonClick(object sender, RoutedEventArgs e)
         {
+            if (!this.Validate())
+            {
+                return;
+            }
+
             var handler = new HttpClientHandler() { AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate };
             var client = new HttpClient(handler);
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", this.viewModel.AccessToken);
@@ -125,6 +130,8 @@ namespace _17nsj.app.mc.win.Views
             dto.Title = this.viewModel.Title;
             dto.Outline = this.viewModel.Outline;
             dto.MediaURL = this.viewModel.MediaURL;
+            dto.RelationalURL = this.viewModel.RelationalURL;
+            dto.ThumbnailURL = this.viewModel.ThumbnailURL;
             dto.IsAvailable = true;
 
             var jsonData = JsonConvert.SerializeObject(dto);
@@ -137,17 +144,70 @@ namespace _17nsj.app.mc.win.Views
                 string[] locationArr = location.Split('/');
                 string category = locationArr[locationArr.Length - 2];
                 string id = locationArr[locationArr.Length - 1];
-                this.viewModel.Result = $"共有フォルダ→{category}フォルダ→{id}フォルダに本記事に関する写真・文章等を入れてください。";
+                this.viewModel.Result = $"ニュースを登録しました。共有フォルダ→{category}フォルダ→{id}フォルダに本記事に関する写真・文章等を入れてください。";
 
                 this.viewModel.SelectedCategory = null;
                 this.viewModel.Title = string.Empty;
                 this.viewModel.Outline = string.Empty;
                 this.viewModel.MediaURL = string.Empty;
+                this.viewModel.RelationalURL = string.Empty;
+                this.viewModel.ThumbnailURL = string.Empty;
             }
             else
             {
                 MessageBox.Show(await response.Content.ReadAsStringAsync());
             }
+        }
+
+        /// <summary>
+        /// 登録前に文字数等のチェックをします。
+        /// </summary>
+        /// <returns>パスしたらtrue</returns>
+        private bool Validate()
+        {
+            if (this.viewModel.SelectedCategory == null)
+            {
+                MessageBox.Show("カテゴリーを選択してください。");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(this.viewModel.Title) || this.viewModel.Title.Length > 20)
+            {
+                MessageBox.Show("タイトルは必須かつ２０文字以内で入力してください。");
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(this.viewModel.Author) || this.viewModel.Author.Length > 30)
+            {
+                MessageBox.Show("著者は必須かつ3０文字以内で入力してください。");
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(this.viewModel.Outline) && this.viewModel.Outline.Length > 300)
+            {
+                MessageBox.Show("概要は300文字以内で入力してください。");
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(this.viewModel.MediaURL) && this.viewModel.MediaURL.Length > 200)
+            {
+                MessageBox.Show("メディアURLは200文字以内で入力してください。");
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(this.viewModel.RelationalURL) && this.viewModel.RelationalURL.Length > 200)
+            {
+                MessageBox.Show("関連URLは200文字以内で入力してください。");
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(this.viewModel.ThumbnailURL) && this.viewModel.ThumbnailURL.Length > 200)
+            {
+                MessageBox.Show("サムネイルURLは200文字以内で入力してください。");
+                return false;
+            }
+
+            return true;
         }
     }
 }

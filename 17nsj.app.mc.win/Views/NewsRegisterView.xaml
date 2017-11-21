@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         mc:Ignorable="d"
-        Title="NewsRegisterView" Height="330" Width="460" Loaded="ViewLoaded">
+        Title="NewsRegisterView" Height="383.091" Width="460" Loaded="ViewLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30px" />
@@ -14,7 +14,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="30px" />
             <RowDefinition Height="30px" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="30px" />
+            <RowDefinition Height="30px" />
+            <RowDefinition Height="50px" />
             <RowDefinition Height="10" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -22,21 +24,25 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="10" />
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Content="カテゴリ" HorizontalContentAlignment="Right"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="カテゴリ(*)" HorizontalContentAlignment="Right"/>
         <ComboBox Grid.Row="0" Grid.Column="1" 
                   ItemsSource="{Binding Path=CategoryList, UpdateSourceTrigger=PropertyChanged }" 
                   SelectedItem="{Binding Path=SelectedCategory, UpdateSourceTrigger=PropertyChanged}" 
                   DisplayMemberPath="CategoryName"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="タイトル" HorizontalContentAlignment="Right"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="タイトル(*)" HorizontalContentAlignment="Right"/>
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Title, UpdateSourceTrigger=PropertyChanged}" />
-        <Label Grid.Row="2" Grid.Column="0" Content="著者" HorizontalContentAlignment="Right"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="著者(*)" HorizontalContentAlignment="Right"/>
         <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Path=Author, UpdateSourceTrigger=PropertyChanged}" />
         <Label Grid.Row="3" Grid.Column="0" Content="概要" HorizontalContentAlignment="Right"/>
         <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Margin="0,5" Height="Auto" VerticalAlignment="Stretch"  Text="{Binding Path=Outline, UpdateSourceTrigger=PropertyChanged}"/>
         <Label Grid.Row="4" Grid.Column="0" Content="メディアURL" HorizontalContentAlignment="Right"/>
         <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding Path=MediaURL, UpdateSourceTrigger=PropertyChanged}" />
-        <Button Grid.Row="5" Grid.Column="1" Content="登録" Width="50px" HorizontalAlignment="Left" Click="SubmitButtonClick"/>
-        <Border Grid.Row="6" Grid.Column="1" BorderThickness="1" BorderBrush="Black">
+        <Label Grid.Row="5" Grid.Column="0" Content="関連URL" HorizontalContentAlignment="Right"/>
+        <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding Path=RelationalURL, UpdateSourceTrigger=PropertyChanged}" />
+        <Label Grid.Row="6" Grid.Column="0" Content="サムネイルURL" HorizontalContentAlignment="Right"/>
+        <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding Path=ThumbnailURL, UpdateSourceTrigger=PropertyChanged}" />
+        <Button Grid.Row="7" Grid.Column="1" Content="登録" Width="50px" HorizontalAlignment="Left" Click="SubmitButtonClick"/>
+        <Border Grid.Row="8" Grid.Column="1" BorderThickness="1" BorderBrush="Black">
             <TextBlock Text="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
         </Border>
     </Grid>

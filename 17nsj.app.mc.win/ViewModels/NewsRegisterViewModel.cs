@@ -51,6 +51,16 @@ namespace _17nsj.app.mc.win.ViewModels
         private string mediaURL;
 
         /// <summary>
+        /// 関連URL
+        /// </summary>
+        private string relationalURL;
+
+        /// <summary>
+        /// サムネイルURL
+        /// </summary>
+        private string thumbnailURL;
+
+        /// <summary>
         /// 登録結果
         /// </summary>
         private string result;
@@ -176,6 +186,48 @@ namespace _17nsj.app.mc.win.ViewModels
                 if (this.mediaURL != value)
                 {
                     this.mediaURL = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 関連URLを取得または設定します。
+        /// </summary>
+        /// <value>関連URL</value>
+        public string RelationalURL
+        {
+            get
+            {
+                return this.relationalURL;
+            }
+
+            set
+            {
+                if (this.relationalURL != value)
+                {
+                    this.relationalURL = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// サムネイルURLを取得または設定します。
+        /// </summary>
+        /// <value>サムネイルURL</value>
+        public string ThumbnailURL
+        {
+            get
+            {
+                return this.thumbnailURL;
+            }
+
+            set
+            {
+                if (this.thumbnailURL != value)
+                {
+                    this.thumbnailURL = value;
                     this.RaisePropertyChanged();
                 }
             }
