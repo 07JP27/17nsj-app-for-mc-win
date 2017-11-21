@@ -25,6 +25,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using _17nsj.app.dto;
+using _17nsj.app.mc.win.Extensions;
 using _17nsj.app.mc.win.Models;
 using _17nsj.app.mc.win.ViewModels;
 using Newtonsoft.Json;
@@ -174,14 +175,50 @@ namespace _17nsj.app.mc.win.Views
             }
 
             this.viewModel.NewsList = responseModels;
+            this.viewModel.FilteredNewsList = responseModels;
             this.viewModel.SelectedNews = responseModels.FirstOrDefault();
             return;
         }
 
+        /// <summary>
+        /// 関連リンクをWebブラウザで開きます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
         private void RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        /// <summary>
+        /// 検索を行います。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void NewsSerchClicked(object sender, RoutedEventArgs e)
+        {
+            var serchText = this.viewModel.SerchText;
+
+            if (string.IsNullOrEmpty(serchText))
+            {
+                this.viewModel.FilteredNewsList = this.viewModel.NewsList;
+            }
+
+            var serchTextArr = serchText.Split(' ', '　');
+            ObservableCollection<NewsModel> filteredNewsList;
+
+            if (serchTextArr.Count() > 0)
+            {
+                var list = this.viewModel.NewsList.Where(a => a.Title.ContainsAny(serchTextArr) || a.Outline.ContainsAny(serchTextArr)).ToList();
+                filteredNewsList = new ObservableCollection<NewsModel>(list);
+            }
+            else
+            {
+                filteredNewsList = this.viewModel.NewsList;
+            }
+
+            this.viewModel.FilteredNewsList = filteredNewsList;
         }
     }
 }

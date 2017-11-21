@@ -29,14 +29,24 @@ namespace _17nsj.app.mc.win.ViewModels
         private ObservableCollection<NewsCategoryModel> newsCategoryList = new ObservableCollection<NewsCategoryModel>();
 
         /// <summary>
-        /// ニュースリスト
+        /// オリジナルニュースリスト
         /// </summary>
         private ObservableCollection<NewsModel> newsList = new ObservableCollection<NewsModel>();
+
+        /// <summary>
+        /// フィルタされたニュースリスト
+        /// </summary>
+        private ObservableCollection<NewsModel> filteredNewsList = new ObservableCollection<NewsModel>();
 
         /// <summary>
         /// 選択中のニュース
         /// </summary>
         private NewsModel selectedNews = new NewsModel();
+
+        /// <summary>
+        /// 検索文字
+        /// </summary>
+        private string serchText;
 
         /// <summary>
         /// ニュースカテゴリーリストを取得または設定します。
@@ -60,9 +70,9 @@ namespace _17nsj.app.mc.win.ViewModels
         }
 
         /// <summary>
-        /// ニュースリストを取得または設定します。
+        /// オリジナルニュースリストを取得または設定します。
         /// </summary>
-        /// <value>ニュースリスト</value>
+        /// <value>オリジナルニュースリスト</value>
         public ObservableCollection<NewsModel> NewsList
         {
             get
@@ -75,6 +85,27 @@ namespace _17nsj.app.mc.win.ViewModels
                 if (this.newsList != value)
                 {
                     this.newsList = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// フィルタされたニュースリストを取得または設定します。
+        /// </summary>
+        /// <value>フィルタされたニュースリスト</value>
+        public ObservableCollection<NewsModel> FilteredNewsList
+        {
+            get
+            {
+                return this.filteredNewsList;
+            }
+
+            set
+            {
+                if (this.filteredNewsList != value)
+                {
+                    this.filteredNewsList = value;
                     this.RaisePropertyChanged();
                 }
             }
@@ -148,6 +179,27 @@ namespace _17nsj.app.mc.win.ViewModels
                     {
                         this.RaisePropertyChanged(nameof(this.SelectedColor));
                     }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 検索文字列を取得または設定します。
+        /// </summary>
+        /// <value>検索文字列</value>
+        public string SerchText
+        {
+            get
+            {
+                return this.serchText;
+            }
+
+            set
+            {
+                if (this.serchText != value)
+                {
+                    this.serchText = value;
+                    this.RaisePropertyChanged();
                 }
             }
         }

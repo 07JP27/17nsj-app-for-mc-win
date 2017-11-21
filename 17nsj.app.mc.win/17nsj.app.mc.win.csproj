@@ -93,6 +93,7 @@
     </ApplicationDefinition>
     <Compile Include="Converter\BoolReverseConverter.cs" />
     <Compile Include="Converter\BoolToVisibilityConverter.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Models\NewsCategoryModel.cs" />
     <Compile Include="Models\NewsModel.cs" />
     <Compile Include="Models\NotificationObject.cs" />

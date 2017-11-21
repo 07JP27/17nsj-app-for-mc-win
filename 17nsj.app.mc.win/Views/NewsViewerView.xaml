@@ -15,31 +15,42 @@
             <ColumnDefinition Width="250" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding Path=NewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedNews, UpdateSourceTrigger=PropertyChanged}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="4*" />
-                        </Grid.ColumnDefinitions>
-                        <DataGridCell Grid.Column="0" Background="{Binding Path=Color}" />
-                        <Image Grid.Column="1" Source="{Binding Path=ThumbnailURL}" Width="60px" />
-                        <Grid Grid.Column="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="2*" />
-                                <RowDefinition Height="1*" />
-                                <RowDefinition Height="1*" />
-                            </Grid.RowDefinitions>
-                            <TextBlock Grid.Row="0" Text="{Binding Path=Title}" FontSize="20px" />
-                            <TextBlock  Grid.Row="1" Text="{Binding Path=CreatedAt, StringFormat=yyyy/MM/dd\ hh:mm:ss}"  />
-                            <TextBlock Grid.Row="2" Text="{Binding Path=Author}" />
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,20,0,0">
+                <TextBox Width="200" Margin="10,0" Text="{Binding Path=SerchText, UpdateSourceTrigger=PropertyChanged}" />
+                <Button Content="検索" Click="NewsSerchClicked"/>
+            </StackPanel>
+            <Label Content="タイトルと概要を検索" />
+            <ListBox Grid.Row="1" ItemsSource="{Binding Path=FilteredNewsList, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding Path=SelectedNews, UpdateSourceTrigger=PropertyChanged}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="10" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="4*" />
+                            </Grid.ColumnDefinitions>
+                            <DataGridCell Grid.Column="0" Background="{Binding Path=Color}" />
+                            <Image Grid.Column="1" Source="{Binding Path=ThumbnailURL}" Width="60px" />
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="2*" />
+                                    <RowDefinition Height="1*" />
+                                    <RowDefinition Height="1*" />
+                                </Grid.RowDefinitions>
+                                <TextBlock Grid.Row="0" Text="{Binding Path=Title}" FontSize="20px" />
+                                <TextBlock  Grid.Row="1" Text="{Binding Path=CreatedAt, StringFormat=yyyy/MM/dd\ hh:mm:ss}"  />
+                                <TextBlock Grid.Row="2" Text="{Binding Path=Author}" />
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
         <Grid Grid.Column="1" Margin="50px, 0px">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25" />
