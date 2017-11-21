@@ -4,8 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
+        xmlns:conv="clr-namespace:_17nsj.app.mc.win.Converter"
         mc:Ignorable="d"
         Title="NewsRegisterView" Height="383.091" Width="460" Loaded="ViewLoaded">
+    <Window.Resources>
+        <conv:BoolToVisibilityConverter x:Key="boolConverter"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30px" />
@@ -44,6 +48,13 @@
         <Button Grid.Row="7" Grid.Column="1" Content="登録" Width="50px" HorizontalAlignment="Left" Click="SubmitButtonClick"/>
         <Border Grid.Row="8" Grid.Column="1" BorderThickness="1" BorderBrush="Black">
             <TextBlock Text="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" />
+        </Border>
+
+        <!--ローディング-->
+        <Border BorderBrush="Black" BorderThickness="1" Background="#80000000" Visibility="{Binding Path=IsBusy, Converter={StaticResource boolConverter}}" Grid.RowSpan="10" Grid.ColumnSpan="3">
+            <Grid>
+                <MediaElement Source="../Asset/loading.gif" LoadedBehavior="Play" Margin="300,0"/>
+            </Grid>
         </Border>
     </Grid>
 </Window>

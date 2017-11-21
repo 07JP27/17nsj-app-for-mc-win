@@ -113,6 +113,8 @@ namespace _17nsj.app.mc.win.Views
         /// <param name="e">e</param>
         private async void SubmitButtonClick(object sender, RoutedEventArgs e)
         {
+            this.viewModel.IsBusy = true;
+
             if (!this.Validate())
             {
                 return;
@@ -157,6 +159,8 @@ namespace _17nsj.app.mc.win.Views
             {
                 MessageBox.Show(await response.Content.ReadAsStringAsync());
             }
+
+            this.viewModel.IsBusy = false;
         }
 
         /// <summary>
