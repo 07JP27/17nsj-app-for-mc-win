@@ -22,9 +22,11 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="10" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="4*" />
                         </Grid.ColumnDefinitions>
                         <DataGridCell Grid.Column="0" Background="{Binding Path=Color}" />
-                        <Grid Grid.Column="1">
+                        <Image Grid.Column="1" Source="{Binding Path=ThumbnailURL}" Width="60px" />
+                        <Grid Grid.Column="2">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="2*" />
                                 <RowDefinition Height="1*" />
@@ -44,8 +46,8 @@
                 <RowDefinition Height="25" />
                 <RowDefinition Height="50" />
                 <RowDefinition Height="25" />
-                <RowDefinition Height="50" />
-                <RowDefinition Height="150" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="200" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <DataGridCell Grid.Row="0" Background="{Binding Path=SelectedColor, UpdateSourceTrigger=PropertyChanged}" />
@@ -62,14 +64,21 @@
             <TextBlock Grid.Row="2" Text="{Binding Path=SelectedTitle, UpdateSourceTrigger=PropertyChanged}" FontSize="30px" />
             <TextBlock Grid.Row="3" Text="{Binding Path=SelectedAuthor, UpdateSourceTrigger=PropertyChanged}" TextAlignment="Right"/>
             <TextBlock Grid.Row="4" Text="{Binding Path=SelectedOutline, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBlock Grid.Row="5" Text="{Binding Path=SelectedMediaURL, UpdateSourceTrigger=PropertyChanged}"/>
+            <Image Grid.Row="5" Source="{Binding Path=SelectedMediaURL, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label Grid.Row="6" x:Uid="label">
+                <Hyperlink x:Uid="hyperlink" Hyperlink.RequestNavigate="RequestNavigate" NavigateUri="{Binding Path=SelectedRelationalURL, UpdateSourceTrigger=PropertyChanged}" Name="LinkLabel">
+                    <TextBlock Text="関連リンク" />
+                </Hyperlink>
+            </Label>
         </Grid>
         
         <!--ローディング-->
+        <!--
         <Border BorderBrush="Black" BorderThickness="1" Background="#80000000" Visibility="{Binding Path=IsBusy, Converter={StaticResource boolConverter}}" Grid.ColumnSpan="2">
             <Grid>
                 <MediaElement Source="../Asset/loading.gif" LoadedBehavior="Play" Margin="300,0"/>
             </Grid>
         </Border>
+        -->
     </Grid>
 </Window>

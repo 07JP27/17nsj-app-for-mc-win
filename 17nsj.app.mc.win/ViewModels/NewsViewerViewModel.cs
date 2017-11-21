@@ -124,6 +124,16 @@ namespace _17nsj.app.mc.win.ViewModels
                         this.RaisePropertyChanged(nameof(this.SelectedMediaURL));
                     }
 
+                    if (oldNews.RelationalURL != value.RelationalURL)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedRelationalURL));
+                    }
+
+                    if (oldNews.ThumbnailURL != value.ThumbnailURL)
+                    {
+                        this.RaisePropertyChanged(nameof(this.SelectedThumbnailURL));
+                    }
+
                     if (oldNews.CreatedAt != value.CreatedAt)
                     {
                         this.RaisePropertyChanged(nameof(this.SelectedCreatedAt));
@@ -199,6 +209,30 @@ namespace _17nsj.app.mc.win.ViewModels
             get
             {
                 return this.SelectedNews.MediaURL;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報の関連URLを取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報の関連URL</value>
+        public string SelectedRelationalURL
+        {
+            get
+            {
+                return this.SelectedNews.RelationalURL;
+            }
+        }
+
+        /// <summary>
+        /// 選択中のニュース情報のサムネイルURLを取得します。
+        /// </summary>
+        /// <value>選択中のニュース情報のサムネイルURL</value>
+        public string SelectedThumbnailURL
+        {
+            get
+            {
+                return this.SelectedNews.ThumbnailURL;
             }
         }
 

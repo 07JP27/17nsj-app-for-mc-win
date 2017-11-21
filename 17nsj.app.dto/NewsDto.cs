@@ -62,6 +62,20 @@ namespace _17nsj.app.dto
         public string MediaURL { get; set; }
 
         /// <summary>
+        /// 関連URLを取得または設定します。
+        /// </summary>
+        /// <value>関連URL</value>
+        [JsonProperty("RelationalURL", NullValueHandling = NullValueHandling.Ignore)]
+        public string RelationalURL { get; set; }
+
+        /// <summary>
+        /// サムネイルURLを取得または設定します。
+        /// </summary>
+        /// <value>サムネイルURL</value>
+        [JsonProperty("ThumbnailURL", NullValueHandling = NullValueHandling.Ignore)]
+        public string ThumbnailURL { get; set; }
+
+        /// <summary>
         /// 配信日時を取得または設定します。
         /// </summary>
         /// <value>配信日時</value>

@@ -39,5 +39,12 @@ namespace _17nsj.app.dto
         /// <value>ラベルカラー</value>
         [JsonProperty("Color", NullValueHandling = NullValueHandling.Ignore)]
         public string Color { get; set; }
+
+        /// <summary>
+        /// サムネイルURLを取得または設定します。
+        /// </summary>
+        /// <value>サムネイルURL</value>
+        [JsonProperty("ThumbnailURL", NullValueHandling = NullValueHandling.Ignore)]
+        public string ThumbnailURL { get; set; }
     }
 }

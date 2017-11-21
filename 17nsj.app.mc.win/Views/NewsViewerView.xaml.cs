@@ -8,6 +8,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -102,6 +103,7 @@ namespace _17nsj.app.mc.win.Views
                 model.Category = dto.Category;
                 model.CategoryName = dto.CategoryName;
                 model.Color = dto.Color;
+                model.ThumbnailURL = dto.ThumbnailURL;
                 responseModels.Add(model);
             }
 
@@ -153,6 +155,18 @@ namespace _17nsj.app.mc.win.Views
                 model.Title = dto.Title;
                 model.Outline = dto.Outline;
                 model.MediaURL = dto.MediaURL;
+                model.RelationalURL = dto.RelationalURL;
+
+                // 固有のサムネが無い場合はカテゴリーデフォルトのサムネ
+                if (string.IsNullOrEmpty(dto.ThumbnailURL))
+                {
+                    model.ThumbnailURL = category.ThumbnailURL;
+                }
+                else
+                {
+                    model.ThumbnailURL = dto.ThumbnailURL;
+                }
+
                 model.CreatedAt = dto.CreatedAt;
                 model.CategoryName = category.CategoryName;
                 model.Color = category.Color;
@@ -160,7 +174,14 @@ namespace _17nsj.app.mc.win.Views
             }
 
             this.viewModel.NewsList = responseModels;
+            this.viewModel.SelectedNews = responseModels.FirstOrDefault();
             return;
+        }
+
+        private void RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

@@ -34,6 +34,11 @@ namespace _17nsj.app.mc.win.Models
         private string color;
 
         /// <summary>
+        /// サムネイルURL
+        /// </summary>
+        private string thumbnailURL;
+
+        /// <summary>
         /// カテゴリーを取得または設定します。
         /// </summary>
         /// <value>カテゴリー</value>
@@ -91,6 +96,27 @@ namespace _17nsj.app.mc.win.Models
                 if (this.color != value)
                 {
                     this.color = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// サムネイルURLを取得または設定します。
+        /// </summary>
+        /// <value>サムネイルURL</value>
+        public string ThumbnailURL
+        {
+            get
+            {
+                return this.thumbnailURL;
+            }
+
+            set
+            {
+                if (this.thumbnailURL != value)
+                {
+                    this.thumbnailURL = value;
                     this.RaisePropertyChanged();
                 }
             }
