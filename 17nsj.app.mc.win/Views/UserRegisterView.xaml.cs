@@ -94,6 +94,7 @@ namespace _17nsj.app.mc.win.Views
 
                 this.viewModel.TargetUserId = string.Empty;
                 this.viewModel.TargetDisplayName = string.Empty;
+                this.PasswordBox.Password = string.Empty;
                 this.viewModel.TargetIsAdmin = false;
                 this.viewModel.TargetCanRead = false;
                 this.viewModel.TargetCanWrite = false;

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_17nsj.app.mc.win.Views"
         xmlns:conv="clr-namespace:_17nsj.app.mc.win.Converter"
         mc:Ignorable="d"
-        Title="UserManageView" Height="300" Width="400" Loaded="ViewLoaded">
+        Title="UserManageView" Height="300" Width="600" Loaded="ViewLoaded">
     <Window.Resources>
         <conv:BoolToVisibilityConverter x:Key="boolConverter"/>
     </Window.Resources>
@@ -22,8 +22,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-            <Button Grid.Column="3" Content="編集" Click="UserEditButtonClicked"/>
+                <ColumnDefinition Width="100" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="3" Content="追加" Click="UserRegisterButtonClicked"/>
+            <Button Grid.Column="5" Content="編集" Click="UserEditButtonClicked"/>
         </Grid>
         <DataGrid Grid.Row="1" 
                   Margin="5" 
@@ -36,8 +38,8 @@
                   HorizontalScrollBarVisibility="Disabled"
                   HeadersVisibility="Column">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="ユーザーID" Width="1*" Binding="{Binding Path=UserId, UpdateSourceTrigger=PropertyChanged}" />
-                <DataGridTextColumn Header="表示名" Width="1*" Binding="{Binding Path=DisplayName, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="ユーザーID" Width="2*" Binding="{Binding Path=UserId, UpdateSourceTrigger=PropertyChanged}" />
+                <DataGridTextColumn Header="表示名" Width="2*" Binding="{Binding Path=DisplayName, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridCheckBoxColumn Header="読み取り権限" Width="1*" Binding="{Binding Path=CanRead, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridCheckBoxColumn Header="書き込み権限" Width="1*" Binding="{Binding Path=CanWrite, UpdateSourceTrigger=PropertyChanged}" />
                 <DataGridCheckBoxColumn Header="管理者権限" Width="1*" Binding="{Binding Path=IsAdmin, UpdateSourceTrigger=PropertyChanged}" />

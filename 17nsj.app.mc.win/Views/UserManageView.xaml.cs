@@ -158,5 +158,23 @@ namespace _17nsj.app.mc.win.Views
             childView.Owner = this;
             var dialogResult = childView.ShowDialog();
         }
+
+        /// <summary>
+        /// 登録画面を開きます。
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">e</param>
+        private void UserRegisterButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var childView = new UserRegisterView();
+            var childViewModel = new UserRegisterViewModel();
+
+            childViewModel.UserId = this.viewModel.UserId;
+            childViewModel.DisplayName = this.viewModel.DisplayName;
+            childViewModel.AccessToken = this.viewModel.AccessToken;
+            childView.DataContext = childViewModel;
+            childView.Owner = this;
+            var dialogResult = childView.ShowDialog();
+        }
     }
 }
