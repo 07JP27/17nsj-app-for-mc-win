@@ -87,16 +87,6 @@ namespace _17nsj.app.mc.win.Views
         }
 
         /// <summary>
-        /// お知らせ編集ボタンが押されたときに呼ばれます。
-        /// </summary>
-        /// <param name="sender">sender</param>
-        /// <param name="e">e</param>
-        private void EditNoticeButtonClick(object sender, RoutedEventArgs e)
-        {
-            // todo
-        }
-
-        /// <summary>
         /// ニュース編集ボタンが押されたときに呼ばれます。
         /// </summary>
         /// <param name="sender">sender</param>
