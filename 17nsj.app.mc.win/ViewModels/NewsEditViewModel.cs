@@ -68,6 +68,16 @@ namespace _17nsj.app.mc.win.ViewModels
         private string medhiaUrl;
 
         /// <summary>
+        /// 関連URL
+        /// </summary>
+        private string relationalUrl;
+
+        /// <summary>
+        /// サムネイルURL
+        /// </summary>
+        private string thumbnailUrl;
+
+        /// <summary>
         /// 配信日
         /// </summary>
         private DateTime createdAt;
@@ -256,6 +266,48 @@ namespace _17nsj.app.mc.win.ViewModels
                 if (this.medhiaUrl != value)
                 {
                     this.medhiaUrl = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 関連URLを取得または設定します。
+        /// </summary>
+        /// <value>関連URL</value>
+        public string RelationalURL
+        {
+            get
+            {
+                return this.relationalUrl;
+            }
+
+            set
+            {
+                if (this.relationalUrl != value)
+                {
+                    this.relationalUrl = value;
+                    this.RaisePropertyChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// サムネイルURLを取得または設定します。
+        /// </summary>
+        /// <value>サムネイルURL</value>
+        public string ThumbnailURL
+        {
+            get
+            {
+                return this.thumbnailUrl;
+            }
+
+            set
+            {
+                if (this.thumbnailUrl != value)
+                {
+                    this.thumbnailUrl = value;
                     this.RaisePropertyChanged();
                 }
             }

@@ -82,6 +82,8 @@ namespace _17nsj.app.mc.win.Views
             dto.Author = this.viewModel.Author;
             dto.Outline = this.viewModel.Outline;
             dto.MediaURL = this.viewModel.MediaURL;
+            dto.RelationalURL = this.viewModel.RelationalURL;
+            dto.ThumbnailURL = this.viewModel.ThumbnailURL;
 
             var jsonData = JsonConvert.SerializeObject(dto);
             var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
